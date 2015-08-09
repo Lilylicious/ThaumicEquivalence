@@ -5,14 +5,16 @@ package lilylicious.thaumicequivalence;
  */
 
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import lilylicious.thaumicequivalence.config.TEConfig;
 import lilylicious.thaumicequivalence.proxies.IProxy;
+import lilylicious.thaumicequivalence.recipes.ThaumicRecipes;
+import lilylicious.thaumicequivalence.research.TEResearch;
 
 import java.io.File;
 
@@ -45,6 +47,8 @@ public class TECore
 
 		//proxy.registerClientOnlyEvents();
 
+		ThaumicRecipes.registerRecipes();
+
 	}
 
 	@EventHandler
@@ -55,7 +59,7 @@ public class TECore
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-
+		TEResearch.registerResearch();
 	}
 
 }
