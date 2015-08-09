@@ -17,29 +17,44 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.0"
-group= "com.yourname.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "modid"
+version = "${minecraft_version}" + "-" + "${thaumicequivalence_version}"
+group= "java.lilylicious" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "ThaumicEquivalence"
 
 minecraft {
-    version = "1.7.10-10.13.2.1291"
+    version = "${minecraft_version}-${forge_version}"
     runDir = "eclipse"
+
+    replace "@VERSION@", project.version
+    replaceIn "PECore.java"
 }
 
 dependencies {
-    // you may put jars on which you depend on in ./libs
-    // or you may define them like so..
-    //compile "some.group:artifact:version:classifier"
-    //compile "some.group:artifact:version"
-      
-    // real examples
-    //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-    //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
+    testCompile group: 'junit', name: 'junit', version:'4.11'
 
-    // for more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
+    compile "com.cricketcraft.chisel:Chisel2:2.3.10.100:api"
 
+    compile "codechicken:CodeChickenCore:1.7.10-1.0.4.29:dev"
+    compile "codechicken:CodeChickenLib:1.7.10-1.1.1.110:dev"
+    compile "codechicken:NotEnoughItems:1.7.10-1.0.4.83:dev"
+
+    // Adds all local libs dependencies in the libs folder
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+repositories {
+    maven { //Waila Repo
+        name "Mobius Repo"
+        url "http://mobiusstrip.eu/maven"
+    }
+    maven { //NEI Repo
+        name 'CB Repo'
+        url "http://chickenbones.net/maven/"
+    }
+    maven {
+        name 'Chisel'
+        url "http://coloredlightscore.us.to/maven/chisel-2-dev/"
+    }
 }
 
 processResources
@@ -60,4 +75,19 @@ processResources
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+
+
 }
+
+// Dev jar (deobfuscated)
+task devJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'dev'
+    version = "${project.version}"
+}
+
+artifacts {
+    archives devJar
+}
+
+idea.module.inheritOutputDirs = true
