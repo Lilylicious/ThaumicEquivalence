@@ -26,16 +26,16 @@ public class ThaumicRecipes
 
 	private static void registerTableRecipes()
 	{
-		shapelessPhiloStone = ThaumcraftApi.addShapelessArcaneCraftingRecipe("Philosopher's Stone", new ItemStack(ObjHandler.philosStone), AspectLists.philoStoneCrafting, new ItemStack(Blocks.stone), new ItemStack(Items.diamond));
-		shapedPhiloStone = ThaumcraftApi.addArcaneCraftingRecipe("Philosopher's Stone", new ItemStack(ObjHandler.philosStone), AspectLists.philoStoneCrafting, "XAX", "   ", "   ", 'X', new ItemStack(Blocks.stone), 'A', new ItemStack(Blocks.cobblestone));
+		//shapelessPhiloStone = ThaumcraftApi.addShapelessArcaneCraftingRecipe("PHILOSTONE", new ItemStack(ObjHandler.philosStone), AspectLists.philoStoneCrafting, new ItemStack(Blocks.stone), new ItemStack(Items.diamond));
+		//shapedPhiloStone = ThaumcraftApi.addArcaneCraftingRecipe("PHILOSTONE", new ItemStack(ObjHandler.philosStone), AspectLists.philoStoneCrafting, "XAX", "   ", "   ", 'X', new ItemStack(Blocks.stone), 'A', new ItemStack(Blocks.cobblestone));
 
 	}
 
 	private static void registerInfusionRecipes()
 	{
-		philoStone = addInfusion("Philosopher's Stone", new ItemStack(ObjHandler.philosStone), 3, AspectLists.philoStoneCrafting, new ItemStack(Items.diamond, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.philoStone);
-		darkMatterBlock = addInfusion("Matter Blocks", new ItemStack(ObjHandler.matterBlock, 1, 0), 3, AspectLists.philoStoneCrafting, new ItemStack(Items.redstone, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.darkMatter);
-		redMatterBlock = addInfusion("Matter Blocks", new ItemStack(ObjHandler.matterBlock, 1, 1), 3, AspectLists.philoStoneCrafting, new ItemStack(Items.emerald, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.redMatter);
+		philoStone = addInfusion("PHILOSTONE", new ItemStack(ObjHandler.philosStone), 3, AspectLists.philoStoneCrafting, new ItemStack(Items.diamond, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.philoStone);
+		darkMatterBlock = addInfusion("MATTERBLOCKS", new ItemStack(ObjHandler.matterBlock, 1, 0), 3, AspectLists.philoStoneCrafting, new ItemStack(Items.redstone, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.darkMatter);
+		redMatterBlock = addInfusion("MATTERBLOCKS", new ItemStack(ObjHandler.matterBlock, 1, 1), 3, AspectLists.philoStoneCrafting, new ItemStack(Items.emerald, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.redMatter);
 
 	}
 

@@ -30,11 +30,11 @@ public class TEResearch
 		ResearchCategories.registerCategory("TE_CATEGORY", new ResourceLocation(TECore.MODID.toLowerCase(), "TODO: RESEARCH ICON"), new ResourceLocation("thaumcraft", "textures/gui/gui_researchback.png"));
 
 		// Repeat for more researches
-		PhiloStone = new ResearchItem("Philosopher's Stone", "TE_CATEGORY", new AspectList().add(Aspect.EXCHANGE, 4).add(Aspect.AIR, 15), -2, 2, 1, new ItemStack(ObjHandler.philosStone));
+		PhiloStone = new ResearchItem("PHILOSTONE", "TE_CATEGORY", new AspectList().add(Aspect.EXCHANGE, 4).add(Aspect.AIR, 15), 0, 0, 1, new ItemStack(ObjHandler.philosStone));
 		PhiloStone.setPages(new ResearchPage("1"), new ResearchPage(ThaumicRecipes.philoStone), new ResearchPage(ThaumicRecipes.shapelessPhiloStone), new ResearchPage(ThaumicRecipes.shapedPhiloStone)).setParentsHidden("INFUSION").setAutoUnlock().registerResearchItem();
 
-		MatterBlocks = new ResearchItem("Matter Blocks", "TE_CATEGORY", new AspectList().add(Aspect.EXCHANGE, 4).add(Aspect.AIR, 15), -2, 3, 1, new ItemStack(ObjHandler.matterBlock, 4, 0));
-		MatterBlocks.setPages(new ResearchPage("1"), new ResearchPage(ThaumicRecipes.darkMatterBlock), new ResearchPage(ThaumicRecipes.redMatterBlock)).setParentsHidden("INFUSION").setConcealed().setAutoUnlock().registerResearchItem();
+		MatterBlocks = new ResearchItem("MATTERBLOCKS", "TE_CATEGORY", new AspectList().add(Aspect.EXCHANGE, 4).add(Aspect.AIR, 15), -8, 5, 1, new ItemStack(ObjHandler.matterBlock, 4, 0));
+		MatterBlocks.setPages(new ResearchPage("1"), new ResearchPage(ThaumicRecipes.darkMatterBlock), new ResearchPage(ThaumicRecipes.redMatterBlock)).setParents("PHILOSTONE").setConcealed().setAutoUnlock().registerResearchItem();
 	}
 
 
