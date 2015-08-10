@@ -8,6 +8,7 @@ import java.io.File;
 public class TEConfig
 {
 	public static boolean enableDebugLog;
+	public static boolean enableHardMode;
 
 	public static void init(File configFile)
 	{
@@ -17,6 +18,7 @@ public class TEConfig
 			config.load();
 
 			enableDebugLog = config.getBoolean("debugLogging", "misc", false, "Enable a more verbose debug logging");
+			enableHardMode = config.getBoolean("hardMode", "difficulty", true, "Enable enforced progression and recipe removals");
 
 			//archangelPedCooldown = config.getInt("archangelPedCooldown", "pedestalcooldown", 100, -1, Integer.MAX_VALUE, "Delay between Archangel Smite shooting arrows while in the pedestal.");
 

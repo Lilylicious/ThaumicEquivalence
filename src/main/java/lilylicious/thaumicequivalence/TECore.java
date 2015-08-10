@@ -15,6 +15,7 @@ import lilylicious.thaumicequivalence.config.TEConfig;
 import lilylicious.thaumicequivalence.proxies.IProxy;
 import lilylicious.thaumicequivalence.recipes.ThaumicRecipes;
 import lilylicious.thaumicequivalence.research.TEResearch;
+import lilylicious.thaumicequivalence.utils.RecipeHelper;
 
 import java.io.File;
 
@@ -60,6 +61,7 @@ public class TECore
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		TEResearch.registerResearch();
+		if (TEConfig.enableHardMode) RecipeHelper.removeRecipes();
 	}
 
 }

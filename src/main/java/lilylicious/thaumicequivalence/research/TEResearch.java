@@ -2,6 +2,7 @@ package lilylicious.thaumicequivalence.research;
 
 import lilylicious.thaumicequivalence.TECore;
 import lilylicious.thaumicequivalence.recipes.ThaumicRecipes;
+import lilylicious.thaumicequivalence.utils.TELogger;
 import moze_intel.projecte.gameObjs.ObjHandler;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
@@ -30,7 +31,7 @@ public class TEResearch
 
 		// Repeat for more researches
 		PhiloStone = new ResearchItem("Philosopher's Stone", "TE_CATEGORY", new AspectList().add(Aspect.EXCHANGE, 4).add(Aspect.AIR, 15), -2, 2, 1, new ItemStack(ObjHandler.philosStone));
-		PhiloStone.setPages(new ResearchPage("1"), new ResearchPage(ThaumicRecipes.philoStone), new ResearchPage(ThaumicRecipes.shapelessPhiloStone), new ResearchPage(ThaumicRecipes.shapedPhiloStone)).setParentsHidden("INFUSION").setConcealed().setAutoUnlock().registerResearchItem();
+		PhiloStone.setPages(new ResearchPage("1"), new ResearchPage(ThaumicRecipes.philoStone), new ResearchPage(ThaumicRecipes.shapelessPhiloStone), new ResearchPage(ThaumicRecipes.shapedPhiloStone)).setParentsHidden("INFUSION").setAutoUnlock().registerResearchItem();
 
 		MatterBlocks = new ResearchItem("Matter Blocks", "TE_CATEGORY", new AspectList().add(Aspect.EXCHANGE, 4).add(Aspect.AIR, 15), -2, 3, 1, new ItemStack(ObjHandler.matterBlock, 4, 0));
 		MatterBlocks.setPages(new ResearchPage("1"), new ResearchPage(ThaumicRecipes.darkMatterBlock), new ResearchPage(ThaumicRecipes.redMatterBlock)).setParentsHidden("INFUSION").setConcealed().setAutoUnlock().registerResearchItem();
