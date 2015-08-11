@@ -11,11 +11,15 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import lilylicious.thaumicequivalence.command.CommandDump;
 import lilylicious.thaumicequivalence.config.TEConfig;
 import lilylicious.thaumicequivalence.proxies.IProxy;
 import lilylicious.thaumicequivalence.recipes.ThaumicRecipes;
 import lilylicious.thaumicequivalence.research.TEResearch;
 import lilylicious.thaumicequivalence.utils.RecipeHelper;
+import lilylicious.thaumicequivalence.utils.TELogger;
 
 import java.io.File;
 
@@ -62,6 +66,17 @@ public class TECore
 	{
 		TEResearch.registerResearch();
 		if (TEConfig.enableHardMode) RecipeHelper.removeRecipes();
+
+
 	}
+
+	@EventHandler
+	public void serverLoad(FMLServerStartingEvent event)
+	{
+		TELogger.logInfo("Registering Command");
+		event.registerServerCommand(new CommandDump());
+
+	}
+
 
 }
