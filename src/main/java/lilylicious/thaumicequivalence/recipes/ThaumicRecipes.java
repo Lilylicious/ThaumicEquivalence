@@ -18,6 +18,8 @@ import thaumcraft.api.crafting.ShapelessArcaneRecipe;
 
 public class ThaumicRecipes
 {
+
+
 	public static void registerRecipes()
 	{
 		registerTableRecipes();
@@ -28,14 +30,14 @@ public class ThaumicRecipes
 	{
 		//shapelessPhiloStone = ThaumcraftApi.addShapelessArcaneCraftingRecipe("PHILOSTONE", new ItemStack(ObjHandler.philosStone), AspectLists.philoStoneCrafting, new ItemStack(Blocks.stone), new ItemStack(Items.diamond));
 		//shapedPhiloStone = ThaumcraftApi.addArcaneCraftingRecipe("PHILOSTONE", new ItemStack(ObjHandler.philosStone), AspectLists.philoStoneCrafting, "XAX", "   ", "   ", 'X', new ItemStack(Blocks.stone), 'A', new ItemStack(Blocks.cobblestone));
-
+		transTable =  ThaumcraftApi.addArcaneCraftingRecipe("TRANSTABLE", new ItemStack(ObjHandler.transmutationTablet), AspectLists.placeholderAspectList, "XAX", "AXA", "XAX", 'X', new ItemStack(Blocks.stone), 'A', new ItemStack(Blocks.cobblestone));
 	}
 
 	private static void registerInfusionRecipes()
 	{
 		philoStone = addInfusion("PHILOSTONE", new ItemStack(ObjHandler.philosStone), 3, AspectLists.philoStoneCrafting, new ItemStack(Items.diamond, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.philoStone);
-		darkMatterBlock = addInfusion("MATTERBLOCKS", new ItemStack(ObjHandler.matterBlock, 1, 0), 3, AspectLists.philoStoneCrafting, new ItemStack(Items.redstone, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.darkMatter);
-		redMatterBlock = addInfusion("MATTERBLOCKS", new ItemStack(ObjHandler.matterBlock, 1, 1), 3, AspectLists.philoStoneCrafting, new ItemStack(Items.emerald, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.redMatter);
+		darkMatter = addInfusion("DARKMATTER", new ItemStack(ObjHandler.matter, 1, 0), 5, AspectLists.philoStoneCrafting, new ItemStack(Items.redstone, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.darkMatter);
+		redMatterBlock = addInfusion("REDMATTER", new ItemStack(ObjHandler.matter, 1, 1), 8, AspectLists.philoStoneCrafting, new ItemStack(Items.emerald, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.redMatter);
 
 	}
 
@@ -46,12 +48,14 @@ public class ThaumicRecipes
 
 	}
 
+	//InfusionRecipes
 	public static InfusionRecipe philoStone;
-	public static InfusionRecipe darkMatterBlock;
+	public static InfusionRecipe darkMatter;
 	public static InfusionRecipe redMatterBlock;
 
-	public static ShapelessArcaneRecipe shapelessPhiloStone;
+	//ShapelessArcane
 
-	public static ShapedArcaneRecipe shapedPhiloStone;
+	//ShapedArcane
+	public static ShapedArcaneRecipe transTable;
 
 }
