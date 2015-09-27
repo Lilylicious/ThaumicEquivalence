@@ -59,13 +59,21 @@ public class ThaumicMapper
 
 		for (Aspect aspect : recipe.getAspects().getAspects())
 		{
-			ingredients.put(AspectMapper.map.get(aspect), recipe.getAspects().getAmount(aspect));
+			ingredients.put(AspectMapper.map.get(aspect.getTag()), recipe.getAspects().getAmount(aspect));
 		}
 
 		for (Object o : recipe.getInput())
 		{
-			if (o instanceof ItemStack) ingredients.put(o, ((ItemStack) o).stackSize);
+			if (o instanceof ItemStack)
+			{
+				ingredients.put(o, ((ItemStack) o).stackSize);
+			} else if (o instanceof ArrayList && ((ArrayList) o).size() > 0)
+			{
+				ingredients.put(((ArrayList) o).get(0), 1);
+			}
 		}
+
+
 		return ingredients;
 	}
 
@@ -75,13 +83,20 @@ public class ThaumicMapper
 
 		for (Aspect aspect : recipe.getAspects().getAspects())
 		{
-			ingredients.put(AspectMapper.map.get(aspect), recipe.getAspects().getAmount(aspect));
+			ingredients.put(AspectMapper.map.get(aspect.getTag()), recipe.getAspects().getAmount(aspect));
 		}
 
 		for (Object o : recipe.getInput())
 		{
-			if (o instanceof ItemStack) ingredients.put(o, ((ItemStack) o).stackSize);
+			if (o instanceof ItemStack)
+			{
+				ingredients.put(o, ((ItemStack) o).stackSize);
+			} else if (o instanceof ArrayList && ((ArrayList) o).size() > 0)
+			{
+				ingredients.put(((ArrayList) o).get(0), 1);
+			}
 		}
+		
 		return ingredients;
 	}
 
@@ -91,7 +106,7 @@ public class ThaumicMapper
 
 		for (Aspect aspect : recipe.getAspects().getAspects())
 		{
-			ingredients.put(AspectMapper.map.get(aspect), recipe.getAspects().getAmount(aspect));
+			ingredients.put(AspectMapper.map.get(aspect.getTag()), recipe.getAspects().getAmount(aspect));
 		}
 
 		for (ItemStack o : recipe.getComponents())
@@ -110,7 +125,7 @@ public class ThaumicMapper
 
 		for (Aspect aspect : recipe.aspects.getAspects())
 		{
-			ingredients.put(AspectMapper.map.get(aspect), recipe.aspects.getAmount(aspect));
+			ingredients.put(AspectMapper.map.get(aspect.getTag()), recipe.aspects.getAmount(aspect));
 		}
 
 		if (recipe.catalyst instanceof ArrayList && ((ArrayList) recipe.catalyst).size() > 0)
