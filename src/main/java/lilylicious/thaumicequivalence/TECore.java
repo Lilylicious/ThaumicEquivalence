@@ -14,6 +14,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import lilylicious.thaumicequivalence.command.CommandDump;
 import lilylicious.thaumicequivalence.config.TEConfig;
+import lilylicious.thaumicequivalence.emc.ThaumicMapper;
 import lilylicious.thaumicequivalence.proxies.IProxy;
 import lilylicious.thaumicequivalence.recipes.ThaumicRecipes;
 import lilylicious.thaumicequivalence.research.TEResearch;
@@ -66,15 +67,14 @@ public class TECore
 		if (TEConfig.enableResearch) TEResearch.registerResearch();
 		if (TEConfig.removeRecipes) RecipeHelper.removeRecipes();
 
+		ThaumicMapper.addConversions();
+
 
 	}
 
 	@EventHandler
 	public void serverLoad(FMLServerStartingEvent event)
 	{
-		TELogger.logInfo("Registering Command");
-		event.registerServerCommand(new CommandDump());
-
 	}
 
 
