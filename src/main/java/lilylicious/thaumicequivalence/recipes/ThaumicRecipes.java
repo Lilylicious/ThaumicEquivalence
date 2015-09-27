@@ -30,7 +30,7 @@ public class ThaumicRecipes
 	{
 		//shapelessPhiloStone = ThaumcraftApi.addShapelessArcaneCraftingRecipe("PHILOSTONE", new ItemStack(ObjHandler.philosStone), AspectLists.philoStoneCrafting, new ItemStack(Blocks.stone), new ItemStack(Items.diamond));
 		//shapedPhiloStone = ThaumcraftApi.addArcaneCraftingRecipe("PHILOSTONE", new ItemStack(ObjHandler.philosStone), AspectLists.philoStoneCrafting, "XAX", "   ", "   ", 'X', new ItemStack(Blocks.stone), 'A', new ItemStack(Blocks.cobblestone));
-		transTable =  ThaumcraftApi.addArcaneCraftingRecipe("TRANSTABLE", new ItemStack(ObjHandler.transmutationTablet), AspectLists.placeholderAspectList, "XAX", "AXA", "XAX", 'X', new ItemStack(Blocks.stone), 'A', new ItemStack(Blocks.cobblestone));
+		transTable =  addShapedArcane("TRANSTABLE", new ItemStack(ObjHandler.transmutationTablet), AspectLists.placeholderAspectList, "XAX", "AXA", "XAX", 'X', new ItemStack(Blocks.stone), 'A', new ItemStack(Blocks.cobblestone));
 	}
 
 	private static void registerInfusionRecipes()
@@ -38,6 +38,13 @@ public class ThaumicRecipes
 		philoStone = addInfusion("PHILOSTONE", new ItemStack(ObjHandler.philosStone), 3, AspectLists.philoStoneCrafting, new ItemStack(Items.diamond, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.philoStone);
 		darkMatter = addInfusion("DARKMATTER", new ItemStack(ObjHandler.matter, 1, 0), 5, AspectLists.philoStoneCrafting, new ItemStack(Items.redstone, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.darkMatter);
 		redMatterBlock = addInfusion("REDMATTER", new ItemStack(ObjHandler.matter, 1, 1), 8, AspectLists.philoStoneCrafting, new ItemStack(Items.emerald, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.redMatter);
+
+	}
+
+	private static ShapedArcaneRecipe addShapedArcane(String research, ItemStack output, AspectList aspectList, Object... recipe)
+	{
+		RecipeHelper.items.add(output.getItem());
+		return ThaumcraftApi.addArcaneCraftingRecipe(research, output, aspectList, recipe);
 
 	}
 

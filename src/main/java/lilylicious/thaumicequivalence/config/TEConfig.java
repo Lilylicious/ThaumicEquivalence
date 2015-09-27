@@ -8,7 +8,9 @@ import java.io.File;
 public class TEConfig
 {
 	public static boolean enableDebugLog;
-	public static boolean enableHardMode;
+	public static boolean removeRecipes;
+	public static boolean enableRecipes;
+	public static boolean enableResearch;
 
 	public static void init(File configFile)
 	{
@@ -17,8 +19,17 @@ public class TEConfig
 		{
 			config.load();
 
+			//Modules
+			enableRecipes = config.getBoolean("recipes", "modules", false, "Enable thaumcraft recipes for ProjectE items");
+			enableResearch = config.getBoolean("research", "modules", false, "Enable thaumcraft research for ProjectE items");
+
+			//Difficulty
+			removeRecipes = config.getBoolean("recipeRemoval", "difficulty", true, "Enable recipe removals");
+			
+			//Misc
 			enableDebugLog = config.getBoolean("debugLogging", "misc", false, "Enable a more verbose debug logging");
-			enableHardMode = config.getBoolean("hardMode", "difficulty", true, "Enable enforced progression and recipe removals");
+
+
 
 			//archangelPedCooldown = config.getInt("archangelPedCooldown", "pedestalcooldown", 100, -1, Integer.MAX_VALUE, "Delay between Archangel Smite shooting arrows while in the pedestal.");
 

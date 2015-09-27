@@ -12,7 +12,6 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import lilylicious.thaumicequivalence.command.CommandDump;
 import lilylicious.thaumicequivalence.config.TEConfig;
 import lilylicious.thaumicequivalence.proxies.IProxy;
@@ -38,7 +37,7 @@ public class TECore
 	@SidedProxy(clientSide = "lilylicious.thaumicequivalence.proxies.ClientProxy", serverSide = "lilylicious.thaumicequivalence.proxies.ServerProxy")
 	public static IProxy proxy;
 
-	@Mod.EventHandler
+	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		CONFIG_DIR = new File(event.getModConfigurationDirectory(), "Thaumic Equivalency");
@@ -52,7 +51,7 @@ public class TECore
 
 		//proxy.registerClientOnlyEvents();
 
-		ThaumicRecipes.registerRecipes();
+		if (TEConfig.enableRecipes) ThaumicRecipes.registerRecipes();
 
 	}
 
@@ -64,8 +63,8 @@ public class TECore
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		TEResearch.registerResearch();
-		if (TEConfig.enableHardMode) RecipeHelper.removeRecipes();
+		if (TEConfig.enableResearch) TEResearch.registerResearch();
+		if (TEConfig.removeRecipes) RecipeHelper.removeRecipes();
 
 
 	}
