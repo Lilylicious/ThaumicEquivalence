@@ -4,6 +4,8 @@ import lilylicious.thaumicequivalence.config.TEConfig;
 import lilylicious.thaumicequivalence.utils.TELogger;
 import moze_intel.projecte.api.ProjectEAPI;
 import net.minecraft.item.ItemStack;
+import org.lwjgl.util.glu.Project;
+import thaumcraft.api.ItemApi;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.crafting.CrucibleRecipe;
@@ -28,6 +30,8 @@ public class ThaumicMapper
 		{
 			AspectMapper.mapAspects();
 		}
+		
+		ManualEMC.addEMC();
 
 		for (Object recipe : ThaumcraftApi.getCraftingRecipes())
 		{
@@ -48,15 +52,16 @@ public class ThaumicMapper
 				ProjectEAPI.getRecipeProxy().addRecipe(((CrucibleRecipe) recipe).getRecipeOutput().stackSize, ((CrucibleRecipe) recipe).getRecipeOutput(), getIngredients((CrucibleRecipe) recipe));
 			}
 
-
+			
 		}
+
 
 	}
 
 	private static Map<Object, Integer> getIngredients(ShapedArcaneRecipe recipe)
 	{
 		Map<Object, Integer> ingredients = new HashMap<Object, Integer>();
-		
+
 		for (Aspect aspect : recipe.getAspects().getAspects())
 		{
 			ingredients.put(AspectMapper.map.get(aspect.getTag()), recipe.getAspects().getAmount(aspect));
@@ -76,7 +81,7 @@ public class ThaumicMapper
 				ingredients.put(o, prevValue + ((ItemStack) o).stackSize);
 			} else if (o instanceof ArrayList && ((ArrayList) o).size() > 0)
 			{
-				ingredients.put(((ArrayList) o).get(0), prevValue + 1);
+				ingredients.put(getObjectFromList((ArrayList) o), prevValue + 1);
 			}
 		}
 
@@ -101,13 +106,13 @@ public class ThaumicMapper
 			{
 				prevValue = ingredients.get(o);
 			}
-			
+
 			if (o instanceof ItemStack)
 			{
 				ingredients.put(o, prevValue + ((ItemStack) o).stackSize);
 			} else if (o instanceof ArrayList && ((ArrayList) o).size() > 0)
 			{
-				ingredients.put(((ArrayList) o).get(0), prevValue + 1);
+				ingredients.put(getObjectFromList((ArrayList) o), prevValue + 1);
 			}
 		}
 
@@ -131,7 +136,7 @@ public class ThaumicMapper
 			{
 				prevValue = ingredients.get(o);
 			}
-			
+
 			ingredients.put(o, prevValue + o.stackSize);
 		}
 
@@ -142,7 +147,7 @@ public class ThaumicMapper
 		{
 			prevValue = ingredients.get(recipe.getRecipeInput());
 		}
-		
+
 		ingredients.put(recipe.getRecipeInput(), prevValue + recipe.getRecipeInput().stackSize);
 
 		return ingredients;
@@ -159,12 +164,28 @@ public class ThaumicMapper
 
 		if (recipe.catalyst instanceof ArrayList && ((ArrayList) recipe.catalyst).size() > 0)
 		{
-			ingredients.put(((ArrayList) recipe.catalyst).get(0), 1);
+			ingredients.put(getObjectFromList((ArrayList) recipe.catalyst), 1);
 		} else if (recipe.catalyst instanceof ItemStack)
 		{
 			ingredients.put(recipe.catalyst, 1);
 		} else TELogger.logFatal("Catalyst is wrong type!", recipe.catalyst);
 		return ingredients;
+	}
+
+	private static Object getObjectFromList(ArrayList list)
+	{
+
+		Object fakeItem = new Object();
+		Map<Object, Integer> map = new HashMap();
+
+		for (Object o : list)
+		{
+			map.put(o, 1);
+			ProjectEAPI.getRecipeProxy().addRecipe(1, fakeItem, map);
+			map.clear();
+		}
+
+		return fakeItem;
 	}
 
 }
