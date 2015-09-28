@@ -40,7 +40,7 @@ public class CommandDump implements ICommand
 	@Override
 	public void processCommand(ICommandSender p_71515_1_, String[] p_71515_2_)
 	{
-		EssentiaChecker.run();
+		//EssentiaChecker.run();
 		TELogger.logInfo("Done dumping");
 	}
 

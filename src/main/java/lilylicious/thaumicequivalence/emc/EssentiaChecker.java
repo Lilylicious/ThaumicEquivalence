@@ -21,7 +21,7 @@ import java.util.List;
 
 public class EssentiaChecker
 {
-
+/*
 	public static List<String> prints = new ArrayList();
 	public static Iterator itemList = Item.itemRegistry.iterator();
 	public static IEMCProxy emcProxy = ProjectEAPI.getEMCProxy();
@@ -104,10 +104,6 @@ public class EssentiaChecker
 
 
 				count += aspects.getAmount(aspect);
-				/*
-				int count = aspects.getAmount(aspect);
-				if (count > 0)
-					sb.append(aspect.getName()).append(":").append(count).append(" ");*/
 			}
 
 			float emcPerPrimal = (float)emc / count;
@@ -172,5 +168,5 @@ public class EssentiaChecker
 		}
 		return aspects;
 	}
-
+*/
 }
