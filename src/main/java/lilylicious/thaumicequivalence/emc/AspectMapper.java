@@ -27,12 +27,18 @@ public class AspectMapper
 
 		for (Aspect aspect : Aspect.getPrimalAspects())
 		{
-			if (aspect == Aspect.AIR) ProjectEAPI.getEMCProxy().registerCustomEMC(map.get(aspect.getTag()), TEConfig.aerValue);
-			else if (aspect == Aspect.EARTH) ProjectEAPI.getEMCProxy().registerCustomEMC(map.get(aspect.getTag()), TEConfig.terraValue);
-			else if (aspect == Aspect.FIRE) ProjectEAPI.getEMCProxy().registerCustomEMC(map.get(aspect.getTag()), TEConfig.ignisValue);
-			else if (aspect == Aspect.WATER) ProjectEAPI.getEMCProxy().registerCustomEMC(map.get(aspect.getTag()), TEConfig.aquaValue);
-			else if (aspect == Aspect.ORDER) ProjectEAPI.getEMCProxy().registerCustomEMC(map.get(aspect.getTag()), TEConfig.ordoValue);
-			else if (aspect == Aspect.ENTROPY) ProjectEAPI.getEMCProxy().registerCustomEMC(map.get(aspect.getTag()), TEConfig.perditioValue);
+			if (aspect == Aspect.AIR)
+				ProjectEAPI.getEMCProxy().registerCustomEMC(map.get(aspect.getTag()), TEConfig.aerValue);
+			else if (aspect == Aspect.EARTH)
+				ProjectEAPI.getEMCProxy().registerCustomEMC(map.get(aspect.getTag()), TEConfig.terraValue);
+			else if (aspect == Aspect.FIRE)
+				ProjectEAPI.getEMCProxy().registerCustomEMC(map.get(aspect.getTag()), TEConfig.ignisValue);
+			else if (aspect == Aspect.WATER)
+				ProjectEAPI.getEMCProxy().registerCustomEMC(map.get(aspect.getTag()), TEConfig.aquaValue);
+			else if (aspect == Aspect.ORDER)
+				ProjectEAPI.getEMCProxy().registerCustomEMC(map.get(aspect.getTag()), TEConfig.ordoValue);
+			else if (aspect == Aspect.ENTROPY)
+				ProjectEAPI.getEMCProxy().registerCustomEMC(map.get(aspect.getTag()), TEConfig.perditioValue);
 		}
 
 		for (Aspect aspect : Aspect.getCompoundAspects())
@@ -42,7 +48,7 @@ public class AspectMapper
 
 			for (Map.Entry primal : aList.aspects.entrySet())
 			{
-				
+
 				EMCTotal += primalEMC((Aspect) primal.getKey(), (Integer) primal.getValue());
 			}
 

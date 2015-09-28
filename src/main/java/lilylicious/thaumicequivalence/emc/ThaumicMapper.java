@@ -56,7 +56,7 @@ public class ThaumicMapper
 	private static Map<Object, Integer> getIngredients(ShapedArcaneRecipe recipe)
 	{
 		Map<Object, Integer> ingredients = new HashMap<Object, Integer>();
-
+		
 		for (Aspect aspect : recipe.getAspects().getAspects())
 		{
 			ingredients.put(AspectMapper.map.get(aspect.getTag()), recipe.getAspects().getAmount(aspect));
@@ -64,12 +64,19 @@ public class ThaumicMapper
 
 		for (Object o : recipe.getInput())
 		{
+			int prevValue = 0;
+
+			if (ingredients.get(o) != null)
+			{
+				prevValue = ingredients.get(o);
+			}
+
 			if (o instanceof ItemStack)
 			{
-				ingredients.put(o, ((ItemStack) o).stackSize);
+				ingredients.put(o, prevValue + ((ItemStack) o).stackSize);
 			} else if (o instanceof ArrayList && ((ArrayList) o).size() > 0)
 			{
-				ingredients.put(((ArrayList) o).get(0), 1);
+				ingredients.put(((ArrayList) o).get(0), prevValue + 1);
 			}
 		}
 
@@ -88,15 +95,22 @@ public class ThaumicMapper
 
 		for (Object o : recipe.getInput())
 		{
+			int prevValue = 0;
+
+			if (ingredients.get(o) != null)
+			{
+				prevValue = ingredients.get(o);
+			}
+			
 			if (o instanceof ItemStack)
 			{
-				ingredients.put(o, ((ItemStack) o).stackSize);
+				ingredients.put(o, prevValue + ((ItemStack) o).stackSize);
 			} else if (o instanceof ArrayList && ((ArrayList) o).size() > 0)
 			{
-				ingredients.put(((ArrayList) o).get(0), 1);
+				ingredients.put(((ArrayList) o).get(0), prevValue + 1);
 			}
 		}
-		
+
 		return ingredients;
 	}
 
@@ -111,10 +125,25 @@ public class ThaumicMapper
 
 		for (ItemStack o : recipe.getComponents())
 		{
-			ingredients.put(o, o.stackSize);
+			int prevValue = 0;
+
+			if (ingredients.get(o) != null)
+			{
+				prevValue = ingredients.get(o);
+			}
+			
+			ingredients.put(o, prevValue + o.stackSize);
 		}
 
-		ingredients.put(recipe.getRecipeInput(), recipe.getRecipeInput().stackSize);
+
+		int prevValue = 0;
+
+		if (ingredients.get(recipe.getRecipeInput()) != null)
+		{
+			prevValue = ingredients.get(recipe.getRecipeInput());
+		}
+		
+		ingredients.put(recipe.getRecipeInput(), prevValue + recipe.getRecipeInput().stackSize);
 
 		return ingredients;
 	}
