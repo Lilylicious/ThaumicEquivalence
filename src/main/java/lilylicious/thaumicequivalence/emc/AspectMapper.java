@@ -11,34 +11,34 @@ import java.util.Map;
 public class AspectMapper
 {
 
-	public static Map<String, Object> map = new HashMap();
+	public static Map<String, Object> objectMap = new HashMap();
 
 
 	public static void mapAspects()
 	{
 		for (Aspect aspect : Aspect.getPrimalAspects())
 		{
-			map.put(aspect.getTag(), new Object());
+			objectMap.put(aspect.getTag(), new Object());
 		}
 		for (Aspect aspect : Aspect.getCompoundAspects())
 		{
-			map.put(aspect.getTag(), new Object());
+			objectMap.put(aspect.getTag(), new Object());
 		}
 
 		for (Aspect aspect : Aspect.getPrimalAspects())
 		{
 			if (aspect == Aspect.AIR)
-				ProjectEAPI.getEMCProxy().registerCustomEMC(map.get(aspect.getTag()), TEConfig.aerValue);
+				ProjectEAPI.getEMCProxy().registerCustomEMC(objectMap.get(aspect.getTag()), TEConfig.aerValue);
 			else if (aspect == Aspect.EARTH)
-				ProjectEAPI.getEMCProxy().registerCustomEMC(map.get(aspect.getTag()), TEConfig.terraValue);
+				ProjectEAPI.getEMCProxy().registerCustomEMC(objectMap.get(aspect.getTag()), TEConfig.terraValue);
 			else if (aspect == Aspect.FIRE)
-				ProjectEAPI.getEMCProxy().registerCustomEMC(map.get(aspect.getTag()), TEConfig.ignisValue);
+				ProjectEAPI.getEMCProxy().registerCustomEMC(objectMap.get(aspect.getTag()), TEConfig.ignisValue);
 			else if (aspect == Aspect.WATER)
-				ProjectEAPI.getEMCProxy().registerCustomEMC(map.get(aspect.getTag()), TEConfig.aquaValue);
+				ProjectEAPI.getEMCProxy().registerCustomEMC(objectMap.get(aspect.getTag()), TEConfig.aquaValue);
 			else if (aspect == Aspect.ORDER)
-				ProjectEAPI.getEMCProxy().registerCustomEMC(map.get(aspect.getTag()), TEConfig.ordoValue);
+				ProjectEAPI.getEMCProxy().registerCustomEMC(objectMap.get(aspect.getTag()), TEConfig.ordoValue);
 			else if (aspect == Aspect.ENTROPY)
-				ProjectEAPI.getEMCProxy().registerCustomEMC(map.get(aspect.getTag()), TEConfig.perditioValue);
+				ProjectEAPI.getEMCProxy().registerCustomEMC(objectMap.get(aspect.getTag()), TEConfig.perditioValue);
 		}
 
 		for (Aspect aspect : Aspect.getCompoundAspects())
@@ -52,7 +52,7 @@ public class AspectMapper
 				EMCTotal += primalEMC((Aspect) primal.getKey(), (Integer) primal.getValue());
 			}
 
-			ProjectEAPI.getEMCProxy().registerCustomEMC(map.get(aspect.getTag()), EMCTotal);
+			ProjectEAPI.getEMCProxy().registerCustomEMC(objectMap.get(aspect.getTag()), EMCTotal);
 		}
 
 	}

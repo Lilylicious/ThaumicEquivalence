@@ -4,8 +4,6 @@ import lilylicious.thaumicequivalence.config.TEConfig;
 import lilylicious.thaumicequivalence.utils.TELogger;
 import moze_intel.projecte.api.ProjectEAPI;
 import net.minecraft.item.ItemStack;
-import org.lwjgl.util.glu.Project;
-import thaumcraft.api.ItemApi;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.crafting.CrucibleRecipe;
@@ -25,12 +23,14 @@ public class ThaumicMapper
 
 	public static void addConversions()
 	{
+		
+		
 
 		if (TEConfig.aspectEMC)
 		{
 			AspectMapper.mapAspects();
 		}
-		
+
 		ManualEMC.addEMC();
 
 		for (Object recipe : ThaumcraftApi.getCraftingRecipes())
@@ -52,7 +52,7 @@ public class ThaumicMapper
 				ProjectEAPI.getConversionProxy().addConversion(((CrucibleRecipe) recipe).getRecipeOutput().stackSize, ((CrucibleRecipe) recipe).getRecipeOutput(), getIngredients((CrucibleRecipe) recipe));
 			}
 
-			
+
 		}
 
 
@@ -64,7 +64,7 @@ public class ThaumicMapper
 
 		for (Aspect aspect : recipe.getAspects().getAspects())
 		{
-			ingredients.put(AspectMapper.map.get(aspect.getTag()), recipe.getAspects().getAmount(aspect));
+			ingredients.put(AspectMapper.objectMap.get(aspect.getTag()), recipe.getAspects().getAmount(aspect));
 		}
 
 		for (Object o : recipe.getInput())
@@ -95,7 +95,7 @@ public class ThaumicMapper
 
 		for (Aspect aspect : recipe.getAspects().getAspects())
 		{
-			ingredients.put(AspectMapper.map.get(aspect.getTag()), recipe.getAspects().getAmount(aspect));
+			ingredients.put(AspectMapper.objectMap.get(aspect.getTag()), recipe.getAspects().getAmount(aspect));
 		}
 
 		for (Object o : recipe.getInput())
@@ -125,7 +125,7 @@ public class ThaumicMapper
 
 		for (Aspect aspect : recipe.getAspects().getAspects())
 		{
-			ingredients.put(AspectMapper.map.get(aspect.getTag()), recipe.getAspects().getAmount(aspect));
+			ingredients.put(AspectMapper.objectMap.get(aspect.getTag()), recipe.getAspects().getAmount(aspect));
 		}
 
 		for (ItemStack o : recipe.getComponents())
@@ -140,6 +140,11 @@ public class ThaumicMapper
 			ingredients.put(o, prevValue + o.stackSize);
 		}
 
+		if (TEConfig.infusionInstabilityEMC)
+		{
+			ingredients.put(AspectMapper.objectMap.get("instability"), recipe.getInstability());
+		}
+
 
 		int prevValue = 0;
 
@@ -147,6 +152,7 @@ public class ThaumicMapper
 		{
 			prevValue = ingredients.get(recipe.getRecipeInput());
 		}
+
 
 		ingredients.put(recipe.getRecipeInput(), prevValue + recipe.getRecipeInput().stackSize);
 
@@ -159,7 +165,7 @@ public class ThaumicMapper
 
 		for (Aspect aspect : recipe.aspects.getAspects())
 		{
-			ingredients.put(AspectMapper.map.get(aspect.getTag()), recipe.aspects.getAmount(aspect));
+			ingredients.put(AspectMapper.objectMap.get(aspect.getTag()), recipe.aspects.getAmount(aspect));
 		}
 
 		if (recipe.catalyst instanceof ArrayList && ((ArrayList) recipe.catalyst).size() > 0)
