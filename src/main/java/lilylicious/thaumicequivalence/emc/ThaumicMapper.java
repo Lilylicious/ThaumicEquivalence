@@ -39,17 +39,17 @@ public class ThaumicMapper
 
 			if (recipe instanceof ShapedArcaneRecipe && TEConfig.shapedArcaneEMC)
 			{
-				ProjectEAPI.getRecipeProxy().addRecipe(((ShapedArcaneRecipe) recipe).getRecipeOutput().stackSize, ((ShapedArcaneRecipe) recipe).getRecipeOutput(), getIngredients((ShapedArcaneRecipe) recipe));
+				ProjectEAPI.getConversionProxy().addConversion(((ShapedArcaneRecipe) recipe).getRecipeOutput().stackSize, ((ShapedArcaneRecipe) recipe).getRecipeOutput(), getIngredients((ShapedArcaneRecipe) recipe));
 			} else if (recipe instanceof ShapelessArcaneRecipe && TEConfig.shapelessArcaneEMC)
 			{
-				ProjectEAPI.getRecipeProxy().addRecipe(((ShapelessArcaneRecipe) recipe).getRecipeOutput().stackSize, ((ShapelessArcaneRecipe) recipe).getRecipeOutput(), getIngredients((ShapelessArcaneRecipe) recipe));
+				ProjectEAPI.getConversionProxy().addConversion(((ShapelessArcaneRecipe) recipe).getRecipeOutput().stackSize, ((ShapelessArcaneRecipe) recipe).getRecipeOutput(), getIngredients((ShapelessArcaneRecipe) recipe));
 			} else if (recipe instanceof InfusionRecipe && TEConfig.infusionEMC)
 			{
 				if (!(((InfusionRecipe) recipe).getRecipeOutput() instanceof Object[]))
-					ProjectEAPI.getRecipeProxy().addRecipe(1, ((InfusionRecipe) recipe).getRecipeOutput(), getIngredients((InfusionRecipe) recipe));
+					ProjectEAPI.getConversionProxy().addConversion(1, ((InfusionRecipe) recipe).getRecipeOutput(), getIngredients((InfusionRecipe) recipe));
 			} else if (recipe instanceof CrucibleRecipe && TEConfig.crucibleEMC)
 			{
-				ProjectEAPI.getRecipeProxy().addRecipe(((CrucibleRecipe) recipe).getRecipeOutput().stackSize, ((CrucibleRecipe) recipe).getRecipeOutput(), getIngredients((CrucibleRecipe) recipe));
+				ProjectEAPI.getConversionProxy().addConversion(((CrucibleRecipe) recipe).getRecipeOutput().stackSize, ((CrucibleRecipe) recipe).getRecipeOutput(), getIngredients((CrucibleRecipe) recipe));
 			}
 
 			
@@ -181,7 +181,7 @@ public class ThaumicMapper
 		for (Object o : list)
 		{
 			map.put(o, 1);
-			ProjectEAPI.getRecipeProxy().addRecipe(1, fakeItem, map);
+			ProjectEAPI.getConversionProxy().addConversion(1, fakeItem, map);
 			map.clear();
 		}
 

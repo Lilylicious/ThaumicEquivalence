@@ -19,21 +19,21 @@ public class ManualEMC
 
 	public static void addEMC()
 	{
-		ProjectEAPI.getRecipeProxy().addRecipe(1, ItemApi.getItem("itemThaumonomicon", 0), ImmutableMap.<Object, Integer>of(new ItemStack(Blocks.bookshelf), 1));
-		ProjectEAPI.getRecipeProxy().addRecipe(1, ItemApi.getBlock("blockMetalDevice", 0), ImmutableMap.<Object, Integer>of(new ItemStack(Items.cauldron), 1));
-		ProjectEAPI.getRecipeProxy().addRecipe(1, ItemApi.getBlock("blockCustomPlant", 5), ImmutableMap.<Object, Integer>of(AspectMapper.map.get(Aspect.PLANT.getTag()), 2, AspectMapper.map.get(Aspect.POISON.getTag()), 1, AspectMapper.map.get(Aspect.MAGIC.getTag()), 2));
-		ProjectEAPI.getRecipeProxy().addRecipe(1, ItemApi.getBlock("blockTable", 15), ImmutableMap.<Object, Integer>of(ItemApi.getBlock("blockTable", 0), 1));
-		ProjectEAPI.getRecipeProxy().addRecipe(1, ItemApi.getItem("itemResource", 18), ImmutableMap.<Object, Integer>of(new ItemStack(Items.gold_nugget), 1));
+		ProjectEAPI.getConversionProxy().addConversion(1, ItemApi.getItem("itemThaumonomicon", 0), ImmutableMap.<Object, Integer>of(new ItemStack(Blocks.bookshelf), 1));
+		ProjectEAPI.getConversionProxy().addConversion(1, ItemApi.getBlock("blockMetalDevice", 0), ImmutableMap.<Object, Integer>of(new ItemStack(Items.cauldron), 1));
+		ProjectEAPI.getConversionProxy().addConversion(1, ItemApi.getBlock("blockCustomPlant", 5), ImmutableMap.<Object, Integer>of(AspectMapper.map.get(Aspect.PLANT.getTag()), 2, AspectMapper.map.get(Aspect.POISON.getTag()), 1, AspectMapper.map.get(Aspect.MAGIC.getTag()), 2));
+		ProjectEAPI.getConversionProxy().addConversion(1, ItemApi.getBlock("blockTable", 15), ImmutableMap.<Object, Integer>of(ItemApi.getBlock("blockTable", 0), 1));
+		ProjectEAPI.getConversionProxy().addConversion(1, ItemApi.getItem("itemResource", 18), ImmutableMap.<Object, Integer>of(new ItemStack(Items.gold_nugget), 1));
 		
 		if(TEConfig.taintEMC){
-			ProjectEAPI.getRecipeProxy().addRecipe(1, ItemApi.getBlock("blockTaint", 0), ImmutableMap.<Object, Integer>of(AspectMapper.map.get(Aspect.TAINT.getTag()), 3, AspectMapper.map.get(Aspect.TREE.getTag()), 1));
-			ProjectEAPI.getRecipeProxy().addRecipe(1, ItemApi.getBlock("blockTaint", 1), ImmutableMap.<Object, Integer>of(AspectMapper.map.get(Aspect.TAINT.getTag()), 3, AspectMapper.map.get(Aspect.EARTH.getTag()), 1));
-			ProjectEAPI.getRecipeProxy().addRecipe(1, ItemApi.getBlock("blockTaintFibres", 0), ImmutableMap.<Object, Integer>of(AspectMapper.map.get(Aspect.TAINT.getTag()), 2, AspectMapper.map.get(Aspect.LIFE.getTag()), 1));
-			ProjectEAPI.getRecipeProxy().addRecipe(1, ItemApi.getBlock("blockTaintFibres", 1), ImmutableMap.<Object, Integer>of(AspectMapper.map.get(Aspect.TAINT.getTag()), 1, AspectMapper.map.get(Aspect.LIFE.getTag()), 1));
-			ProjectEAPI.getRecipeProxy().addRecipe(1, ItemApi.getBlock("blockTaintFibres", 2), ImmutableMap.<Object, Integer>of(AspectMapper.map.get(Aspect.TAINT.getTag()), 1, AspectMapper.map.get(Aspect.PLANT.getTag()), 1));
-			ProjectEAPI.getRecipeProxy().addRecipe(1, ItemApi.getBlock("blockTaintFibres", 3), ImmutableMap.<Object, Integer>of(AspectMapper.map.get(Aspect.TAINT.getTag()), 2, AspectMapper.map.get(Aspect.PLANT.getTag()), 1, AspectMapper.map.get(Aspect.BEAST.getTag()), 1));
-			ProjectEAPI.getRecipeProxy().addRecipe(1, ItemApi.getItem("itemResource", 11), ImmutableMap.<Object, Integer>of(AspectMapper.map.get(Aspect.TAINT.getTag()), 3, AspectMapper.map.get(Aspect.SLIME.getTag()), 1));
-			ProjectEAPI.getRecipeProxy().addRecipe(1, ItemApi.getItem("itemResource", 12), ImmutableMap.<Object, Integer>of(AspectMapper.map.get(Aspect.TAINT.getTag()), 1, AspectMapper.map.get(Aspect.PLANT.getTag()), 1));
+			ProjectEAPI.getConversionProxy().addConversion(1, ItemApi.getBlock("blockTaint", 0), ImmutableMap.<Object, Integer>of(AspectMapper.map.get(Aspect.TAINT.getTag()), 3, AspectMapper.map.get(Aspect.TREE.getTag()), 1));
+			ProjectEAPI.getConversionProxy().addConversion(1, ItemApi.getBlock("blockTaint", 1), ImmutableMap.<Object, Integer>of(AspectMapper.map.get(Aspect.TAINT.getTag()), 3, AspectMapper.map.get(Aspect.EARTH.getTag()), 1));
+			ProjectEAPI.getConversionProxy().addConversion(1, ItemApi.getBlock("blockTaintFibres", 0), ImmutableMap.<Object, Integer>of(AspectMapper.map.get(Aspect.TAINT.getTag()), 2, AspectMapper.map.get(Aspect.LIFE.getTag()), 1));
+			ProjectEAPI.getConversionProxy().addConversion(1, ItemApi.getBlock("blockTaintFibres", 1), ImmutableMap.<Object, Integer>of(AspectMapper.map.get(Aspect.TAINT.getTag()), 1, AspectMapper.map.get(Aspect.LIFE.getTag()), 1));
+			ProjectEAPI.getConversionProxy().addConversion(1, ItemApi.getBlock("blockTaintFibres", 2), ImmutableMap.<Object, Integer>of(AspectMapper.map.get(Aspect.TAINT.getTag()), 1, AspectMapper.map.get(Aspect.PLANT.getTag()), 1));
+			ProjectEAPI.getConversionProxy().addConversion(1, ItemApi.getBlock("blockTaintFibres", 3), ImmutableMap.<Object, Integer>of(AspectMapper.map.get(Aspect.TAINT.getTag()), 2, AspectMapper.map.get(Aspect.PLANT.getTag()), 1, AspectMapper.map.get(Aspect.BEAST.getTag()), 1));
+			ProjectEAPI.getConversionProxy().addConversion(1, ItemApi.getItem("itemResource", 11), ImmutableMap.<Object, Integer>of(AspectMapper.map.get(Aspect.TAINT.getTag()), 3, AspectMapper.map.get(Aspect.SLIME.getTag()), 1));
+			ProjectEAPI.getConversionProxy().addConversion(1, ItemApi.getItem("itemResource", 12), ImmutableMap.<Object, Integer>of(AspectMapper.map.get(Aspect.TAINT.getTag()), 1, AspectMapper.map.get(Aspect.PLANT.getTag()), 1));
 		}
 		ProjectEAPI.getEMCProxy().registerCustomEMC(ItemApi.getBlock("blockCustomPlant", 2), TEConfig.shimmerLeafValue);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(ItemApi.getBlock("blockCustomPlant", 3), TEConfig.cinderpearlValue);
