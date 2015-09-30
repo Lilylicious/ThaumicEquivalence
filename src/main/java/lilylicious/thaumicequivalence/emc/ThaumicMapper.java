@@ -20,6 +20,7 @@ import java.util.Map;
 public class ThaumicMapper
 {
 
+	public static Object instability = new Object();
 
 	public static void addConversions()
 	{
@@ -142,7 +143,7 @@ public class ThaumicMapper
 
 		if (TEConfig.infusionInstabilityEMC)
 		{
-			ingredients.put(AspectMapper.objectMap.get("instability"), recipe.getInstability());
+			ingredients.put(instability, recipe.getInstability());
 		}
 
 

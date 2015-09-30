@@ -10,12 +10,11 @@ import thaumcraft.api.aspects.Aspect;
 
 public class ManualEMC
 {
+	
 	private static int tempInt = 0;
-
+	
 	public static void addEMC()
 	{
-		AspectMapper.objectMap.put("instability", new Object());
-
 		ProjectEAPI.getConversionProxy().addConversion(1, ItemApi.getItem("itemThaumonomicon", 0), ImmutableMap.<Object, Integer>of(Blocks.bookshelf, 1));
 		ProjectEAPI.getConversionProxy().addConversion(1, ItemApi.getBlock("blockMetalDevice", 0), ImmutableMap.<Object, Integer>of(Items.cauldron, 1));
 		ProjectEAPI.getConversionProxy().addConversion(1, ItemApi.getBlock("blockCustomPlant", 5), ImmutableMap.<Object, Integer>of(AspectMapper.objectMap.get(Aspect.PLANT.getTag()), 2, AspectMapper.objectMap.get(Aspect.POISON.getTag()), 1, AspectMapper.objectMap.get(Aspect.MAGIC.getTag()), 2));
