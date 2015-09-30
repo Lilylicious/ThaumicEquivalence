@@ -1,5 +1,6 @@
 package lilylicious.thaumicequivalence.emc;
 
+import com.google.common.collect.ImmutableMap;
 import lilylicious.thaumicequivalence.config.TEConfig;
 import lilylicious.thaumicequivalence.utils.TELogger;
 import moze_intel.projecte.api.ProjectEAPI;
@@ -17,7 +18,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class ThaumicMapper
 {
 
@@ -26,9 +26,6 @@ public class ThaumicMapper
 
 	public static void addConversions()
 	{
-		
-		
-
 		if (TEConfig.aspectEMC)
 		{
 			AspectMapper.mapAspects();
@@ -54,11 +51,7 @@ public class ThaumicMapper
 			{
 				convProxy.addConversion(((CrucibleRecipe) recipe).getRecipeOutput().stackSize, ((CrucibleRecipe) recipe).getRecipeOutput(), getIngredients((CrucibleRecipe) recipe));
 			}
-
-
 		}
-
-
 	}
 
 	private static Map<Object, Integer> getIngredients(ShapedArcaneRecipe recipe)
@@ -155,8 +148,7 @@ public class ThaumicMapper
 		{
 			prevValue = ingredients.get(recipe.getRecipeInput());
 		}
-
-
+		
 		ingredients.put(recipe.getRecipeInput(), prevValue + recipe.getRecipeInput().stackSize);
 
 		return ingredients;
@@ -183,15 +175,11 @@ public class ThaumicMapper
 
 	private static Object getObjectFromList(ArrayList list)
 	{
-
 		Object fakeItem = new Object();
-		Map<Object, Integer> map = new HashMap();
-
+		
 		for (Object o : list)
 		{
-			map.put(o, 1);
-			convProxy.addConversion(1, fakeItem, map);
-			map.clear();
+			convProxy.addConversion(1, fakeItem, ImmutableMap.of(o, 1));
 		}
 
 		return fakeItem;
