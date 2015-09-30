@@ -3,6 +3,7 @@ package lilylicious.thaumicequivalence.emc;
 import lilylicious.thaumicequivalence.config.TEConfig;
 import lilylicious.thaumicequivalence.utils.TELogger;
 import moze_intel.projecte.api.ProjectEAPI;
+import moze_intel.projecte.api.proxy.IConversionProxy;
 import net.minecraft.item.ItemStack;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
@@ -20,7 +21,8 @@ import java.util.Map;
 public class ThaumicMapper
 {
 
-	public static Object instability = new Object();
+	public static final Object instability = new Object();
+	private static IConversionProxy convProxy = ProjectEAPI.getConversionProxy();
 
 	public static void addConversions()
 	{
@@ -40,17 +42,17 @@ public class ThaumicMapper
 
 			if (recipe instanceof ShapedArcaneRecipe && TEConfig.shapedArcaneEMC)
 			{
-				ProjectEAPI.getConversionProxy().addConversion(((ShapedArcaneRecipe) recipe).getRecipeOutput().stackSize, ((ShapedArcaneRecipe) recipe).getRecipeOutput(), getIngredients((ShapedArcaneRecipe) recipe));
+				convProxy.addConversion(((ShapedArcaneRecipe) recipe).getRecipeOutput().stackSize, ((ShapedArcaneRecipe) recipe).getRecipeOutput(), getIngredients((ShapedArcaneRecipe) recipe));
 			} else if (recipe instanceof ShapelessArcaneRecipe && TEConfig.shapelessArcaneEMC)
 			{
-				ProjectEAPI.getConversionProxy().addConversion(((ShapelessArcaneRecipe) recipe).getRecipeOutput().stackSize, ((ShapelessArcaneRecipe) recipe).getRecipeOutput(), getIngredients((ShapelessArcaneRecipe) recipe));
+				convProxy.addConversion(((ShapelessArcaneRecipe) recipe).getRecipeOutput().stackSize, ((ShapelessArcaneRecipe) recipe).getRecipeOutput(), getIngredients((ShapelessArcaneRecipe) recipe));
 			} else if (recipe instanceof InfusionRecipe && TEConfig.infusionEMC)
 			{
 				if (!(((InfusionRecipe) recipe).getRecipeOutput() instanceof Object[]))
-					ProjectEAPI.getConversionProxy().addConversion(1, ((InfusionRecipe) recipe).getRecipeOutput(), getIngredients((InfusionRecipe) recipe));
+					convProxy.addConversion(1, ((InfusionRecipe) recipe).getRecipeOutput(), getIngredients((InfusionRecipe) recipe));
 			} else if (recipe instanceof CrucibleRecipe && TEConfig.crucibleEMC)
 			{
-				ProjectEAPI.getConversionProxy().addConversion(((CrucibleRecipe) recipe).getRecipeOutput().stackSize, ((CrucibleRecipe) recipe).getRecipeOutput(), getIngredients((CrucibleRecipe) recipe));
+				convProxy.addConversion(((CrucibleRecipe) recipe).getRecipeOutput().stackSize, ((CrucibleRecipe) recipe).getRecipeOutput(), getIngredients((CrucibleRecipe) recipe));
 			}
 
 
@@ -188,7 +190,7 @@ public class ThaumicMapper
 		for (Object o : list)
 		{
 			map.put(o, 1);
-			ProjectEAPI.getConversionProxy().addConversion(1, fakeItem, map);
+			convProxy.addConversion(1, fakeItem, map);
 			map.clear();
 		}
 
