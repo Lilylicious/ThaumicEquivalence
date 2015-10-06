@@ -23,7 +23,7 @@ import lilylicious.thaumicequivalence.utils.TELogger;
 
 import java.io.File;
 
-@Mod(modid = TECore.MODID, name = TECore.MODNAME, version = TECore.VERSION, dependencies = "required-after:Thaumcraft;required-after:ProjectE")
+@Mod(modid = TECore.MODID, name = TECore.MODNAME, version = TECore.VERSION, dependencies = "required-after:Thaumcraft;required-after:ProjectE@[1.7.10-PE1.9.3,)")
 public class TECore
 {
 	public static final String MODID = "ThaumicEquivalence";
