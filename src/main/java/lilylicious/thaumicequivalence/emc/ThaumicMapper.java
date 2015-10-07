@@ -121,6 +121,11 @@ public class ThaumicMapper
 
 		for (Aspect aspect : recipe.getAspects().getAspects())
 		{
+			if (aspect == null)
+			{
+				continue;
+			}
+
 			ingredients.put(AspectMapper.objectMap.get(aspect.getTag()), recipe.getAspects().getAmount(aspect));
 		}
 
