@@ -17,7 +17,7 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "${minecraft_version}" + "-" + "${thaumicequivalence_version}"
+version = "${minecraft_version}-${thaumicequivalence_version}"
 group= "java.lilylicious" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "ThaumicEquivalence"
 
@@ -26,7 +26,7 @@ minecraft {
     runDir = "eclipse"
 
     replace "@VERSION@", project.version
-    replaceIn "PECore.java"
+    replaceIn "TECore.java"
 }
 
 dependencies {
