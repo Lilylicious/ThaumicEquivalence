@@ -1,2 +1,5 @@
 ###Version 1.7.10-1.0.0
+* FIX: Nodal Mechanics crash on startup
+
+###Version 1.7.10-1.0.0
 * NEW: EMC generation for most Thaumcraft items
