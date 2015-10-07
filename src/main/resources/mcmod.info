@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "ThaumicEquivalence",
+  "name": "Thaumic Equivalence",
+  "description": "ProjectE Thaumcraft bridge",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "http://minecraft.curseforge.com/projects/thaumic-equivalence",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["Lilylicious"],
+  "credits": "Azanor for Thaumcraft\nsinkillerj, williewillus and Blubberbub for ProjectE",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
