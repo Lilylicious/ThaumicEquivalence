@@ -2,6 +2,7 @@ package lilylicious.thaumicequivalence.recipes;
 
 // Examples from: Thaumic Tinkerer
 
+import lilylicious.thaumicequivalence.config.TEConfig;
 import lilylicious.thaumicequivalence.utils.AspectLists;
 import lilylicious.thaumicequivalence.utils.RecipeHelper;
 import lilylicious.thaumicequivalence.utils.RecipeLists;
@@ -24,6 +25,8 @@ public class ThaumicRecipes
 	{
 		registerTableRecipes();
 		registerInfusionRecipes();
+
+		if (TEConfig.removeRecipes) RecipeHelper.removeRecipes();
 	}
 
 	private static void registerTableRecipes()

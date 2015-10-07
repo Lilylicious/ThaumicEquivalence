@@ -65,7 +65,7 @@ public class TECore
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		if (TEConfig.enableResearch) TEResearch.registerResearch();
-		if (TEConfig.removeRecipes) RecipeHelper.removeRecipes();
+		if (TEConfig.enableRecipes) ThaumicRecipes.registerRecipes();
 
 		ThaumicMapper.addConversions();
 
