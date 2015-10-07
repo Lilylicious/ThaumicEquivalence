@@ -5,6 +5,7 @@ import lilylicious.thaumicequivalence.config.TEConfig;
 import lilylicious.thaumicequivalence.utils.TELogger;
 import moze_intel.projecte.api.ProjectEAPI;
 import moze_intel.projecte.api.proxy.IConversionProxy;
+import moze_intel.projecte.utils.PELogger;
 import net.minecraft.item.ItemStack;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
@@ -43,7 +44,7 @@ public class ThaumicMapper
 			} else if (recipe instanceof ShapelessArcaneRecipe && TEConfig.shapelessArcaneEMC)
 			{
 				convProxy.addConversion(((ShapelessArcaneRecipe) recipe).getRecipeOutput().stackSize, ((ShapelessArcaneRecipe) recipe).getRecipeOutput(), getIngredients((ShapelessArcaneRecipe) recipe));
-			} else if (recipe instanceof InfusionRecipe && TEConfig.infusionEMC)
+			} else if (recipe instanceof InfusionRecipe && TEConfig.infusionEMC && !recipe.getClass().getName().equals("shukaro.nodalmechanics.recipe.RecipeNode"))
 			{
 				if (!(((InfusionRecipe) recipe).getRecipeOutput() instanceof Object[]))
 					convProxy.addConversion(1, ((InfusionRecipe) recipe).getRecipeOutput(), getIngredients((InfusionRecipe) recipe));
@@ -121,11 +122,6 @@ public class ThaumicMapper
 
 		for (Aspect aspect : recipe.getAspects().getAspects())
 		{
-			if (aspect == null)
-			{
-				continue;
-			}
-
 			ingredients.put(AspectMapper.objectMap.get(aspect.getTag()), recipe.getAspects().getAmount(aspect));
 		}
 
