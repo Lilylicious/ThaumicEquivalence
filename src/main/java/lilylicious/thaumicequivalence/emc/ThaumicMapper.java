@@ -5,7 +5,6 @@ import lilylicious.thaumicequivalence.config.TEConfig;
 import lilylicious.thaumicequivalence.utils.TELogger;
 import moze_intel.projecte.api.ProjectEAPI;
 import moze_intel.projecte.api.proxy.IConversionProxy;
-import moze_intel.projecte.utils.PELogger;
 import net.minecraft.item.ItemStack;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
@@ -36,21 +35,27 @@ public class ThaumicMapper
 
 		for (Object recipe : ThaumcraftApi.getCraftingRecipes())
 		{
-			if (recipe instanceof InfusionRunicAugmentRecipe) continue;
+			try
+			{
+				if (recipe instanceof InfusionRunicAugmentRecipe) continue;
 
-			if (recipe instanceof ShapedArcaneRecipe && TEConfig.shapedArcaneEMC)
+				if (recipe instanceof ShapedArcaneRecipe && TEConfig.shapedArcaneEMC)
+				{
+					convProxy.addConversion(((ShapedArcaneRecipe) recipe).getRecipeOutput().stackSize, ((ShapedArcaneRecipe) recipe).getRecipeOutput(), getIngredients((ShapedArcaneRecipe) recipe));
+				} else if (recipe instanceof ShapelessArcaneRecipe && TEConfig.shapelessArcaneEMC)
+				{
+					convProxy.addConversion(((ShapelessArcaneRecipe) recipe).getRecipeOutput().stackSize, ((ShapelessArcaneRecipe) recipe).getRecipeOutput(), getIngredients((ShapelessArcaneRecipe) recipe));
+				} else if (recipe instanceof InfusionRecipe && TEConfig.infusionEMC)
+				{
+					if (!(((InfusionRecipe) recipe).getRecipeOutput() instanceof Object[]))
+						convProxy.addConversion(1, ((InfusionRecipe) recipe).getRecipeOutput(), getIngredients((InfusionRecipe) recipe));
+				} else if (recipe instanceof CrucibleRecipe && TEConfig.crucibleEMC)
+				{
+					convProxy.addConversion(((CrucibleRecipe) recipe).getRecipeOutput().stackSize, ((CrucibleRecipe) recipe).getRecipeOutput(), getIngredients((CrucibleRecipe) recipe));
+				}
+			} catch (NullPointerException e)
 			{
-				convProxy.addConversion(((ShapedArcaneRecipe) recipe).getRecipeOutput().stackSize, ((ShapedArcaneRecipe) recipe).getRecipeOutput(), getIngredients((ShapedArcaneRecipe) recipe));
-			} else if (recipe instanceof ShapelessArcaneRecipe && TEConfig.shapelessArcaneEMC)
-			{
-				convProxy.addConversion(((ShapelessArcaneRecipe) recipe).getRecipeOutput().stackSize, ((ShapelessArcaneRecipe) recipe).getRecipeOutput(), getIngredients((ShapelessArcaneRecipe) recipe));
-			} else if (recipe instanceof InfusionRecipe && TEConfig.infusionEMC && !recipe.getClass().getName().equals("shukaro.nodalmechanics.recipe.RecipeNode"))
-			{
-				if (!(((InfusionRecipe) recipe).getRecipeOutput() instanceof Object[]))
-					convProxy.addConversion(1, ((InfusionRecipe) recipe).getRecipeOutput(), getIngredients((InfusionRecipe) recipe));
-			} else if (recipe instanceof CrucibleRecipe && TEConfig.crucibleEMC)
-			{
-				convProxy.addConversion(((CrucibleRecipe) recipe).getRecipeOutput().stackSize, ((CrucibleRecipe) recipe).getRecipeOutput(), getIngredients((CrucibleRecipe) recipe));
+				TELogger.logWarn("A recipe passed a null value into a conversion, skipped");
 			}
 		}
 	}
@@ -149,7 +154,7 @@ public class ThaumicMapper
 		{
 			prevValue = ingredients.get(recipe.getRecipeInput());
 		}
-		
+
 		ingredients.put(recipe.getRecipeInput(), prevValue + recipe.getRecipeInput().stackSize);
 
 		return ingredients;
@@ -177,7 +182,7 @@ public class ThaumicMapper
 	private static Object getObjectFromList(ArrayList list)
 	{
 		Object fakeItem = new Object();
-		
+
 		for (Object o : list)
 		{
 			convProxy.addConversion(1, fakeItem, ImmutableMap.of(o, 1));
