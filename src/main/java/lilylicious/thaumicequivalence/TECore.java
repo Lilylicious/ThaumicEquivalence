@@ -12,14 +12,11 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
-import lilylicious.thaumicequivalence.command.CommandDump;
 import lilylicious.thaumicequivalence.config.TEConfig;
 import lilylicious.thaumicequivalence.emc.ThaumicMapper;
 import lilylicious.thaumicequivalence.proxies.IProxy;
 import lilylicious.thaumicequivalence.recipes.ThaumicRecipes;
 import lilylicious.thaumicequivalence.research.TEResearch;
-import lilylicious.thaumicequivalence.utils.RecipeHelper;
-import lilylicious.thaumicequivalence.utils.TELogger;
 
 import java.io.File;
 
