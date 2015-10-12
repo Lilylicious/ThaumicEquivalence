@@ -39,16 +39,15 @@ public class ThaumicRecipes
 	private static void registerInfusionRecipes()
 	{
 		philoStone = addInfusion("PHILOSTONE", new ItemStack(ObjHandler.philosStone), 3, AspectLists.philoStoneCrafting, new ItemStack(Items.diamond, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.philoStone);
-		darkMatter = addInfusion("DARKMATTER", new ItemStack(ObjHandler.matter, 1, 0), 5, AspectLists.darkMatterCrafting, new ItemStack(Items.redstone, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.darkMatter);
+		darkMatter = addInfusion("DARKMATTER", new ItemStack(ObjHandler.matter, 1, 0), 5, AspectLists.darkMatterCrafting, new ItemStack(ObjHandler.fuelBlock, 1, 2), RecipeLists.darkMatter);
 		redMatterBlock = addInfusion("REDMATTER", new ItemStack(ObjHandler.matter, 1, 1), 8, AspectLists.redMatterBlockCrafting, new ItemStack(Items.emerald, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.redMatter);
 		darkMatterAxe = addInfusion("DMAXE", new ItemStack(ObjHandler.dmAxe, 1), 6, AspectLists.dmAxeCrafting, new ItemStack(Items.diamond_axe, 1), RecipeLists.dmAxe);
-		darkMatterHammer = addInfusion("DMHAMMER", new ItemStack(ObjHandler.dmHammer, 1), 6, AspectLists.dmHammerCrafting, new ItemStack(Items.diamond_pickaxe, 1), RecipeLists.dmAxe);
-		darkMatterHoe = addInfusion("DMHOE", new ItemStack(ObjHandler.dmHoe, 1), 6, AspectLists.dmHoeCrafting, new ItemStack(Items.diamond_hoe, 1), RecipeLists.dmAxe);
-		darkMatterShears = addInfusion("DMSHEARS", new ItemStack(ObjHandler.dmShears, 1), 6, AspectLists.dmShearsCrafting, new ItemStack(Items.shears, 1), RecipeLists.dmAxe);
-		darkMatterShovel = addInfusion("DMSHOVEL", new ItemStack(ObjHandler.dmShovel, 1), 6, AspectLists.dmShovelCrafting, new ItemStack(Items.diamond_shovel, 1), RecipeLists.dmAxe);
-		darkMatterSword = addInfusion("DMSWORD", new ItemStack(ObjHandler.dmSword, 1), 6, AspectLists.dmSwordCrafting, new ItemStack(Items.diamond_sword, 1), RecipeLists.dmAxe);
-		darkMatterPick = addInfusion("DMPICK", new ItemStack(ObjHandler.dmPick, 1), 6, AspectLists.dmPickCrafting, new ItemStack(Items.diamond_pickaxe, 1), RecipeLists.dmAxe);
-		
+		darkMatterHammer = addInfusion("DMHAMMER", new ItemStack(ObjHandler.dmHammer, 1), 6, AspectLists.dmHammerCrafting, new ItemStack(Items.diamond_pickaxe, 1), RecipeLists.dmHammer);
+		darkMatterHoe = addInfusion("DMHOE", new ItemStack(ObjHandler.dmHoe, 1), 6, AspectLists.dmHoeCrafting, new ItemStack(Items.diamond_hoe, 1), RecipeLists.dmHoe);
+		darkMatterShears = addInfusion("DMSHEARS", new ItemStack(ObjHandler.dmShears, 1), 6, AspectLists.dmShearsCrafting, new ItemStack(Items.shears, 1), RecipeLists.dmShears);
+		darkMatterShovel = addInfusion("DMSHOVEL", new ItemStack(ObjHandler.dmShovel, 1), 6, AspectLists.dmShovelCrafting, new ItemStack(Items.diamond_shovel, 1), RecipeLists.dmShovel);
+		darkMatterSword = addInfusion("DMSWORD", new ItemStack(ObjHandler.dmSword, 1), 6, AspectLists.dmSwordCrafting, new ItemStack(Items.diamond_sword, 1), RecipeLists.dmSword);
+		darkMatterPick = addInfusion("DMPICK", new ItemStack(ObjHandler.dmPick, 1), 6, AspectLists.dmPickCrafting, new ItemStack(Items.diamond_pickaxe, 1), RecipeLists.dmPick);
 	}
 
 	private static ShapedArcaneRecipe addShapedArcane(String research, ItemStack output, AspectList aspectList, Object... recipe)

@@ -40,10 +40,10 @@ public class ThaumicResearch
 
 
 		//Root parent. Ints= Column, row, complexity
-		basicEMCTheory = new ResearchItem("BASICEMC", "TE_CATEGORY", AspectLists.basicEMCTheoryResearch, 0, 0, 0, new ResourceLocation("projecte", "textures/items/philosopher's_stone.png"));
-		basicEMCTheory.setPages(new ResearchPage("te.research_page.BASICEMC.1")).setAutoUnlock().registerResearchItem();
+		basicEMCTheory = new ResearchItem("BASICEMC", "TE_CATEGORY", AspectLists.basicEMCTheoryResearch, 0, 0, 0, new ResourceLocation("projecte", "textures/items/philosophers_stone.png"));
+		basicEMCTheory.setPages(new ResearchPage("te.research_page.BASICEMC.1")).setAutoUnlock().setRound().registerResearchItem();
 
-		philoStone = new ResearchItem("PHILOSTONE", "TE_CATEGORY", AspectLists.philoStoneResearch, -2, -1, 1, new ResourceLocation("projecte", "textures/items/philosopher's_stone.png"));
+		philoStone = new ResearchItem("PHILOSTONE", "TE_CATEGORY", AspectLists.philoStoneResearch, -2, -1, 1, new ResourceLocation("projecte", "textures/items/philosophers_stone.png"));
 		philoStone.setPages(new ResearchPage("te.research_page.PHILOSTONE.1"), new ResearchPage(ThaumicRecipes.philoStone)).setParents(new String[]{"BASICEMC"}).setParentsHidden("INFUSION").registerResearchItem();
 
 		transmutationTablet = new ResearchItem("TRANSTABLE", "TE_CATEGORY", AspectLists.transTableResearch, -4, -3, 1, new ResourceLocation("projecte", "textures/items/transmute_tablet.png"));
@@ -53,25 +53,25 @@ public class ThaumicResearch
 		darkMatter.setPages(new ResearchPage("te.research_page.DARKMATTER.1"), new ResearchPage(ThaumicRecipes.darkMatter)).setParents(new String[]{"TRANSTABLE"}).setConcealed().registerResearchItem();
 
 		darkMatterAxe = new ResearchItem("DMAXE", "TE_CATEGORY", AspectLists.placeholderAspectList, -10, -9, 3, new ResourceLocation("projecte", "textures/items/dm_tools/axe.png"));
-		darkMatterAxe.setPages(new ResearchPage("te.research_page.DMAXE.1")).setParents(new String[]{"DARKMATTER"}).setConcealed().registerResearchItem();
+		darkMatterAxe.setPages(new ResearchPage("te.research_page.DMAXE.1"), new ResearchPage(ThaumicRecipes.darkMatterAxe)).setParents(new String[]{"DARKMATTER"}).setConcealed().registerResearchItem();
 
 		darkMatterHammer = new ResearchItem("DMHAMMER", "TE_CATEGORY", AspectLists.placeholderAspectList, -9, -9, 3, new ResourceLocation("projecte", "textures/items/dm_tools/hammer.png"));
-		darkMatterHammer.setPages(new ResearchPage("te.research_page.DMHAMMER.1")).setParents(new String[]{"DARKMATTER"}).setConcealed().registerResearchItem();
+		darkMatterHammer.setPages(new ResearchPage("te.research_page.DMHAMMER.1"), new ResearchPage(ThaumicRecipes.darkMatterHammer)).setParents(new String[]{"DARKMATTER"}).setConcealed().registerResearchItem();
 
 		darkMatterHoe = new ResearchItem("DMHOE", "TE_CATEGORY", AspectLists.placeholderAspectList, -8, -8, 3, new ResourceLocation("projecte", "textures/items/dm_tools/hoe.png"));
-		darkMatterHoe.setPages(new ResearchPage("te.research_page.DMHOE.1")).setParents(new String[]{"DARKMATTER"}).setConcealed().registerResearchItem();
+		darkMatterHoe.setPages(new ResearchPage("te.research_page.DMHOE.1"), new ResearchPage(ThaumicRecipes.darkMatterHoe)).setParents(new String[]{"DARKMATTER"}).setConcealed().registerResearchItem();
 
 		darkMatterShears = new ResearchItem("DMSHEARS", "TE_CATEGORY", AspectLists.placeholderAspectList, -8, -7, 3, new ResourceLocation("projecte", "textures/items/dm_tools/shears.png"));
-		darkMatterShears.setPages(new ResearchPage("te.research_page.DMSHEARS.1")).setParents(new String[]{"DARKMATTER"}).setConcealed().registerResearchItem();
+		darkMatterShears.setPages(new ResearchPage("te.research_page.DMSHEARS.1"), new ResearchPage(ThaumicRecipes.darkMatterShears)).setParents(new String[]{"DARKMATTER"}).setConcealed().registerResearchItem();
 
 		darkMatterShovel = new ResearchItem("DMSHOVEL", "TE_CATEGORY", AspectLists.placeholderAspectList, -8, -6, 3, new ResourceLocation("projecte", "textures/items/dm_tools/shovel.png"));
-		darkMatterShovel.setPages(new ResearchPage("te.research_page.DMSHOVEL.1")).setParents(new String[]{"DARKMATTER"}).setConcealed().registerResearchItem();
+		darkMatterShovel.setPages(new ResearchPage("te.research_page.DMSHOVEL.1"), new ResearchPage(ThaumicRecipes.darkMatterShovel)).setParents(new String[]{"DARKMATTER"}).setConcealed().registerResearchItem();
 
 		darkMatterSword = new ResearchItem("DMSWORD", "TE_CATEGORY", AspectLists.placeholderAspectList, -9, -5, 3, new ResourceLocation("projecte", "textures/items/dm_tools/sword.png"));
-		darkMatterSword.setPages(new ResearchPage("te.research_page.DMSWORD.1")).setParents(new String[]{"DARKMATTER"}).setConcealed().registerResearchItem();
+		darkMatterSword.setPages(new ResearchPage("te.research_page.DMSWORD.1"), new ResearchPage(ThaumicRecipes.darkMatterSword)).setParents(new String[]{"DARKMATTER"}).setConcealed().registerResearchItem();
 
 		darkMatterPick = new ResearchItem("DMPICK", "TE_CATEGORY", AspectLists.placeholderAspectList, -10, -5, 3, new ResourceLocation("projecte", "textures/items/dm_tools/pickaxe.png"));
-		darkMatterPick.setPages(new ResearchPage("te.research_page.DMPICK.1")).setParents(new String[]{"DARKMATTER"}).setConcealed().registerResearchItem();
+		darkMatterPick.setPages(new ResearchPage("te.research_page.DMPICK.1"), new ResearchPage(ThaumicRecipes.darkMatterPick)).setParents(new String[]{"DARKMATTER"}).setConcealed().registerResearchItem();
 
 		darkMatterHelm = new ResearchItem("DMHELM", "TE_CATEGORY", AspectLists.placeholderAspectList, -4, -9, 3, new ResourceLocation("projecte", "textures/items/dm_armor/head.png"));
 		darkMatterHelm.setPages(new ResearchPage("te.research_page.DMCHEST.1")).setParents(new String[]{"DARKMATTER"}).setConcealed().registerResearchItem();
