@@ -5,7 +5,9 @@ import net.minecraft.item.ItemStack;
 
 public class RecipeLists
 {
-	public static ItemStack[] philoStone = new ItemStack[]{new ItemStack(Blocks.stone), new ItemStack(Blocks.stone), new ItemStack(Blocks.stone), new ItemStack(Blocks.stone)};
-	public static ItemStack[] darkMatter = new ItemStack[]{new ItemStack(Blocks.stone), new ItemStack(Blocks.stone), new ItemStack(Blocks.stone), new ItemStack(Blocks.stone)};
-	public static ItemStack[] redMatter = new ItemStack[]{new ItemStack(Blocks.stone), new ItemStack(Blocks.stone), new ItemStack(Blocks.stone), new ItemStack(Blocks.stone)};
+	public static ItemStack[] placeholder = new ItemStack[]{new ItemStack(Blocks.stone), new ItemStack(Blocks.stone), new ItemStack(Blocks.stone), new ItemStack(Blocks.stone)};
+	public static ItemStack[] philoStone = placeholder;
+	public static ItemStack[] darkMatter = placeholder;
+	public static ItemStack[] redMatter = placeholder;
+	public static ItemStack[] dmAxe = placeholder;
 }

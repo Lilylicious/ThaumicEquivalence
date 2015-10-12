@@ -16,7 +16,7 @@ import lilylicious.thaumicequivalence.config.TEConfig;
 import lilylicious.thaumicequivalence.emc.ThaumicMapper;
 import lilylicious.thaumicequivalence.proxies.IProxy;
 import lilylicious.thaumicequivalence.recipes.ThaumicRecipes;
-import lilylicious.thaumicequivalence.research.TEResearch;
+import lilylicious.thaumicequivalence.research.ThaumicResearch;
 
 import java.io.File;
 
@@ -61,8 +61,9 @@ public class TECore
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		if (TEConfig.enableResearch) TEResearch.registerResearch();
+		
 		if (TEConfig.enableRecipes) ThaumicRecipes.registerRecipes();
+		if (TEConfig.enableResearch) ThaumicResearch.registerResearch();
 
 		ThaumicMapper.addConversions();
 
