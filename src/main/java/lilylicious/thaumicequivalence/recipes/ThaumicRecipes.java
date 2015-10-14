@@ -15,7 +15,6 @@ import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.InfusionRecipe;
 import thaumcraft.api.crafting.ShapedArcaneRecipe;
-import thaumcraft.api.crafting.ShapelessArcaneRecipe;
 
 public class ThaumicRecipes
 {
@@ -33,21 +32,27 @@ public class ThaumicRecipes
 	{
 		//shapelessPhiloStone = ThaumcraftApi.addShapelessArcaneCraftingRecipe("PHILOSTONE", new ItemStack(ObjHandler.philosStone), AspectLists.philoStoneCrafting, new ItemStack(Blocks.stone), new ItemStack(Items.diamond));
 		//shapedPhiloStone = ThaumcraftApi.addArcaneCraftingRecipe("PHILOSTONE", new ItemStack(ObjHandler.philosStone), AspectLists.philoStoneCrafting, "XAX", "   ", "   ", 'X', new ItemStack(Blocks.stone), 'A', new ItemStack(Blocks.cobblestone));
-		transTable =  addShapedArcane("TRANSTABLE", new ItemStack(ObjHandler.transmutationTablet), AspectLists.transTableCrafting, "XAX", "AXA", "XAX", 'X', new ItemStack(Blocks.stone), 'A', new ItemStack(Blocks.cobblestone));
+		transTable = addShapedArcane("TRANSTABLE", new ItemStack(ObjHandler.transmutationTablet), AspectLists.transTableCrafting, "XAX", "AXA", "XAX", 'X', new ItemStack(Blocks.stone), 'A', new ItemStack(Blocks.cobblestone));
+		covalenceLow = addShapedArcane("COVALENCE", new ItemStack(ObjHandler.covalence, 40, 0), AspectLists.covalenceLowCrafting, "XXX", "XXX", "XXA", 'X', new ItemStack(Blocks.cobblestone), 'A', new ItemStack(Items.coal, 1, 0));
 	}
 
 	private static void registerInfusionRecipes()
 	{
 		philoStone = addInfusion("PHILOSTONE", new ItemStack(ObjHandler.philosStone), 3, AspectLists.philoStoneCrafting, new ItemStack(Items.diamond, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.philoStone);
 		darkMatter = addInfusion("DARKMATTER", new ItemStack(ObjHandler.matter, 1, 0), 5, AspectLists.darkMatterCrafting, new ItemStack(ObjHandler.fuelBlock, 1, 2), RecipeLists.darkMatter);
-		redMatterBlock = addInfusion("REDMATTER", new ItemStack(ObjHandler.matter, 1, 1), 8, AspectLists.redMatterBlockCrafting, new ItemStack(Items.emerald, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.redMatter);
-		darkMatterAxe = addInfusion("DMAXE", new ItemStack(ObjHandler.dmAxe, 1), 6, AspectLists.dmAxeCrafting, new ItemStack(Items.diamond_axe, 1), RecipeLists.dmAxe);
-		darkMatterHammer = addInfusion("DMHAMMER", new ItemStack(ObjHandler.dmHammer, 1), 6, AspectLists.dmHammerCrafting, new ItemStack(Items.diamond_pickaxe, 1), RecipeLists.dmHammer);
-		darkMatterHoe = addInfusion("DMHOE", new ItemStack(ObjHandler.dmHoe, 1), 6, AspectLists.dmHoeCrafting, new ItemStack(Items.diamond_hoe, 1), RecipeLists.dmHoe);
-		darkMatterShears = addInfusion("DMSHEARS", new ItemStack(ObjHandler.dmShears, 1), 6, AspectLists.dmShearsCrafting, new ItemStack(Items.shears, 1), RecipeLists.dmShears);
-		darkMatterShovel = addInfusion("DMSHOVEL", new ItemStack(ObjHandler.dmShovel, 1), 6, AspectLists.dmShovelCrafting, new ItemStack(Items.diamond_shovel, 1), RecipeLists.dmShovel);
-		darkMatterSword = addInfusion("DMSWORD", new ItemStack(ObjHandler.dmSword, 1), 6, AspectLists.dmSwordCrafting, new ItemStack(Items.diamond_sword, 1), RecipeLists.dmSword);
-		darkMatterPick = addInfusion("DMPICK", new ItemStack(ObjHandler.dmPick, 1), 6, AspectLists.dmPickCrafting, new ItemStack(Items.diamond_pickaxe, 1), RecipeLists.dmPick);
+		darkMatterAxe = addInfusion("DMAXE", new ItemStack(ObjHandler.dmAxe, 1), 2, AspectLists.dmAxeCrafting, new ItemStack(Items.diamond_axe, 1), RecipeLists.dmAxe);
+		darkMatterHammer = addInfusion("DMHAMMER", new ItemStack(ObjHandler.dmHammer, 1), 2, AspectLists.dmHammerCrafting, new ItemStack(Items.diamond_pickaxe, 1), RecipeLists.dmHammer);
+		darkMatterHoe = addInfusion("DMHOE", new ItemStack(ObjHandler.dmHoe, 1), 2, AspectLists.dmHoeCrafting, new ItemStack(Items.diamond_hoe, 1), RecipeLists.dmHoe);
+		darkMatterShears = addInfusion("DMSHEARS", new ItemStack(ObjHandler.dmShears, 1), 2, AspectLists.dmShearsCrafting, new ItemStack(Items.shears, 1), RecipeLists.dmShears);
+		darkMatterShovel = addInfusion("DMSHOVEL", new ItemStack(ObjHandler.dmShovel, 1), 2, AspectLists.dmShovelCrafting, new ItemStack(Items.diamond_shovel, 1), RecipeLists.dmShovel);
+		darkMatterSword = addInfusion("DMSWORD", new ItemStack(ObjHandler.dmSword, 1), 2, AspectLists.dmSwordCrafting, new ItemStack(Items.diamond_sword, 1), RecipeLists.dmSword);
+		darkMatterPick = addInfusion("DMPICK", new ItemStack(ObjHandler.dmPick, 1), 2, AspectLists.dmPickCrafting, new ItemStack(Items.diamond_pickaxe, 1), RecipeLists.dmPick);
+		darkMatterHelm = addInfusion("DMPICK", new ItemStack(ObjHandler.dmHelmet, 1), 3, AspectLists.dmHelmCrafting, new ItemStack(Items.diamond_helmet, 1), RecipeLists.dmHelm);
+		darkMatterChest = addInfusion("DMPICK", new ItemStack(ObjHandler.dmChest, 1), 3, AspectLists.dmChestCrafting, new ItemStack(Items.diamond_chestplate, 1), RecipeLists.dmChest);
+		darkMatterLegs = addInfusion("DMPICK", new ItemStack(ObjHandler.dmLegs, 1), 3, AspectLists.dmLegsCrafting, new ItemStack(Items.diamond_leggings, 1), RecipeLists.dmLegs);
+		darkMatterBoots = addInfusion("DMPICK", new ItemStack(ObjHandler.dmFeet, 1), 3, AspectLists.dmFeetCrafting, new ItemStack(Items.diamond_boots, 1), RecipeLists.dmFeet);
+		covalenceMed = addInfusion("COVALENCE", new ItemStack(ObjHandler.covalence, 40, 1), 0, AspectLists.covalenceMedCrafting, new ItemStack(ObjHandler.covalence, 1, 0), RecipeLists.covalenceMed);
+		covalenceHigh = addInfusion("COVALENCE", new ItemStack(ObjHandler.covalence, 40, 2), 0, AspectLists.covalenceHighCrafting, new ItemStack(ObjHandler.covalence, 1, 1), RecipeLists.covalenceHigh);
 	}
 
 	private static ShapedArcaneRecipe addShapedArcane(String research, ItemStack output, AspectList aspectList, Object... recipe)
@@ -69,16 +74,25 @@ public class ThaumicRecipes
 	public static InfusionRecipe darkMatter;
 	public static InfusionRecipe redMatterBlock;
 	public static InfusionRecipe darkMatterAxe;
-	public static InfusionRecipe darkMatterHammer; 
+	public static InfusionRecipe darkMatterHammer;
 	public static InfusionRecipe darkMatterHoe;
 	public static InfusionRecipe darkMatterShears;
 	public static InfusionRecipe darkMatterShovel;
 	public static InfusionRecipe darkMatterSword;
 	public static InfusionRecipe darkMatterPick;
-	
+	public static InfusionRecipe darkMatterHelm;
+	public static InfusionRecipe darkMatterChest;
+	public static InfusionRecipe darkMatterLegs;
+	public static InfusionRecipe darkMatterBoots;
+	public static InfusionRecipe covalenceMed;
+	public static InfusionRecipe covalenceHigh;
+
+
 	//ShapelessArcane
 
 	//ShapedArcane
 	public static ShapedArcaneRecipe transTable;
+	public static ShapedArcaneRecipe covalenceLow;
+
 
 }
