@@ -44,7 +44,7 @@ public class ThaumicResearch
 		//Right tree
 		{
 			new ResearchItem("COVALENCE", "TE_CATEGORY", AspectLists.covalenceResearch, 2, -1, 1, new ResourceLocation("projecte", "textures/items/covalence_dust/medium.png")).setPages(new ResearchPage("te.research_page.COVALENCE.1"), new ResearchPage(ThaumicRecipes.covalenceLow), new ResearchPage(ThaumicRecipes.covalenceMed), new ResearchPage(ThaumicRecipes.covalenceHigh)).setParents(new String[]{"BASICEMC"}).setConcealed().registerResearchItem();
-			new ResearchItem("REPAIRTALISMAN", "TE_CATEGORY", AspectLists.repairResearch, 4, -2, 1, new ResourceLocation("projecte", "textures/items/covalence_dust/medium.png")).setPages(new ResearchPage("te.research_page.COVALENCE.1"), new ResearchPage(ThaumicRecipes.covalenceLow), new ResearchPage(ThaumicRecipes.covalenceMed), new ResearchPage(ThaumicRecipes.covalenceHigh)).setParents(new String[]{"COVALENCE"}).setConcealed().registerResearchItem();
+			new ResearchItem("REPAIRTALISMAN", "TE_CATEGORY", AspectLists.repairResearch, 4, -2, 1, new ResourceLocation("projecte", "textures/items/repair_talisman.png")).setPages(new ResearchPage("te.research_page.REPAIRTALISMAN.1"), new ResearchPage(ThaumicRecipes.repairTalisman)).setParents(new String[]{"COVALENCE"}).setConcealed().registerResearchItem();
 		}
 	}
 

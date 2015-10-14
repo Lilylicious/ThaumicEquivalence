@@ -44,4 +44,6 @@ public class AspectLists
 	public static AspectList covalenceLowCrafting =  new AspectList().add(Aspect.ORDER, 4).add(Aspect.ENTROPY, 4);
 	public static AspectList covalenceMedCrafting = new AspectList().add(Aspect.EXCHANGE, 3);
 	public static AspectList covalenceHighCrafting = new AspectList().add(Aspect.EXCHANGE, 5);
+	public static AspectList repairTalismanCrafting = new AspectList().add(Aspect.EXCHANGE, 2).add(Aspect.TOOL, 2).add(Aspect.CRAFT, 2);
+	public static AspectList alchemicalChestCrafting = new AspectList().add(Aspect.EXCHANGE, 5).add(Aspect.VOID, 5);
 }
