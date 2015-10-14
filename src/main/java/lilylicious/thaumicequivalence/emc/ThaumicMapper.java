@@ -99,17 +99,12 @@ public class ThaumicMapper
 		{
 			int prevValue = 0;
 
-			if (o instanceof ItemStack && o.equals(ObjHandler.philosStone))
-			{
-				continue;
-			}
-
 			if (ingredients.get(o) != null)
 			{
 				prevValue = ingredients.get(o);
 			}
 
-			if (o instanceof ItemStack)
+			if (o instanceof ItemStack && ((ItemStack) o).getItem() != ObjHandler.philosStone)
 			{
 				ingredients.put(o, prevValue + ((ItemStack) o).stackSize);
 			} else if (o instanceof ArrayList && ((ArrayList) o).size() > 0)
@@ -140,7 +135,7 @@ public class ThaumicMapper
 				prevValue = ingredients.get(o);
 			}
 
-			if (o instanceof ItemStack)
+			if (o instanceof ItemStack && ((ItemStack) o).getItem() != ObjHandler.philosStone)
 			{
 				ingredients.put(o, prevValue + ((ItemStack) o).stackSize);
 			} else if (o instanceof ArrayList && ((ArrayList) o).size() > 0)
