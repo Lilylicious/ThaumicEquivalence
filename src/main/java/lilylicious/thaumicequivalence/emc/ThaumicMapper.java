@@ -23,6 +23,10 @@ public class ThaumicMapper
 
 	public static final Object instability = new Object();
 	private static IConversionProxy convProxy = ProjectEAPI.getConversionProxy();
+	private static ItemStack stack;
+	private static boolean itemstack;
+	private static Object o;
+	private static Object output;
 
 	public static void addConversions()
 	{
@@ -47,8 +51,27 @@ public class ThaumicMapper
 					convProxy.addConversion(((ShapelessArcaneRecipe) recipe).getRecipeOutput().stackSize, ((ShapelessArcaneRecipe) recipe).getRecipeOutput(), getIngredients((ShapelessArcaneRecipe) recipe));
 				} else if (recipe instanceof InfusionRecipe && TEConfig.infusionEMC)
 				{
-					if (!(((InfusionRecipe) recipe).getRecipeOutput() instanceof Object[]))
-						convProxy.addConversion(1, ((InfusionRecipe) recipe).getRecipeOutput(), getIngredients((InfusionRecipe) recipe));
+					o = ((InfusionRecipe) recipe).getRecipeOutput();
+					itemstack = false;
+					if (o instanceof ArrayList && ((ArrayList) o).size() > 0)
+					{
+						o = getObjectFromList((ArrayList) o);
+
+					}
+
+					if (o instanceof ItemStack)
+					{
+						stack = (ItemStack) o;
+						output = stack;
+						itemstack = true;
+					} else
+					{
+						output = o;
+						itemstack = false;
+					}
+
+					if (!(output instanceof Object[]))
+						convProxy.addConversion(itemstack ? stack.stackSize : 1, output, getIngredients((InfusionRecipe) recipe));
 				} else if (recipe instanceof CrucibleRecipe && TEConfig.crucibleEMC)
 				{
 					convProxy.addConversion(((CrucibleRecipe) recipe).getRecipeOutput().stackSize, ((CrucibleRecipe) recipe).getRecipeOutput(), getIngredients((CrucibleRecipe) recipe));
