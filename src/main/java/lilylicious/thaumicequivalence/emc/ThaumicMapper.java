@@ -5,6 +5,9 @@ import lilylicious.thaumicequivalence.config.TEConfig;
 import lilylicious.thaumicequivalence.utils.TELogger;
 import moze_intel.projecte.api.ProjectEAPI;
 import moze_intel.projecte.api.proxy.IConversionProxy;
+import moze_intel.projecte.gameObjs.ObjHandler;
+import moze_intel.projecte.gameObjs.container.PhilosStoneContainer;
+import moze_intel.projecte.gameObjs.items.PhilosophersStone;
 import net.minecraft.item.ItemStack;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
@@ -95,6 +98,11 @@ public class ThaumicMapper
 		for (Object o : recipe.getInput())
 		{
 			int prevValue = 0;
+
+			if (o instanceof ItemStack && o.equals(ObjHandler.philosStone))
+			{
+				continue;
+			}
 
 			if (ingredients.get(o) != null)
 			{
