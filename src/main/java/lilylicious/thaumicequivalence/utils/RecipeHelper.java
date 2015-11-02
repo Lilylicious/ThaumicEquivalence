@@ -1,5 +1,6 @@
 package lilylicious.thaumicequivalence.utils;
 
+import moze_intel.projecte.gameObjs.customRecipes.RecipeAlchemyBag;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
@@ -21,7 +22,7 @@ public class RecipeHelper
 		while (recipes.hasNext())
 		{
 			IRecipe recipe = recipes.next();
-			if (recipe.getRecipeOutput() != null && items.contains(recipe.getRecipeOutput().getItem()))
+			if (recipe.getRecipeOutput() != null && items.contains(recipe.getRecipeOutput().getItem()) && !(recipe instanceof RecipeAlchemyBag))
 			{
 				recipes.remove();
 			}
