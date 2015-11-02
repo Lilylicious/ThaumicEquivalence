@@ -1,3 +1,9 @@
+###Version 1.7.10-1.0.3
+* NEW: Research, research, research!
+* NEW: Recipes, recipes, recipes!
+* NEW: Hard mode finished. Puts ProjectE behind a Thaumcraft research barrier, as well as altering recipes of ProjectE.
+NOTE: Recipes are subject to future change and balancing. Especially the aspects. Suggestions welcome!
+
 ###Version 1.7.10-1.0.2
 * FIX: More general fix to crash on startup caused by null values in thaumic recipes
 
