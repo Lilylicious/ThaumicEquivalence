@@ -15,8 +15,10 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import lilylicious.thaumicequivalence.config.TEConfig;
 import lilylicious.thaumicequivalence.emc.ThaumicMapper;
 import lilylicious.thaumicequivalence.proxies.IProxy;
+import lilylicious.thaumicequivalence.recipes.ThaumicAspects;
 import lilylicious.thaumicequivalence.recipes.ThaumicRecipes;
 import lilylicious.thaumicequivalence.research.ThaumicResearch;
+import lilylicious.thaumicequivalence.utils.TELogger;
 
 import java.io.File;
 
@@ -48,9 +50,6 @@ public class TECore
 		TEConfig.init(new File(CONFIG_DIR, "ThaumicEquivalency.cfg"));
 
 		//proxy.registerClientOnlyEvents();
-
-		if (TEConfig.enableRecipes) ThaumicRecipes.registerRecipes();
-
 	}
 
 	@EventHandler
@@ -61,12 +60,12 @@ public class TECore
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		
-		if (TEConfig.enableRecipes) ThaumicRecipes.registerRecipes();
-		if (TEConfig.enableResearch) ThaumicResearch.registerResearch();
+		if(!TEConfig.removeRecipes && TEConfig.mode == 1) TELogger.logWarn("Hard mode is enabled but recipes are not set to be removed.");		
+		ThaumicRecipes.registerRecipes();
+		ThaumicResearch.registerResearch();
+		ThaumicAspects.registerAspects();
 
 		ThaumicMapper.addConversions();
-
 
 	}
 
