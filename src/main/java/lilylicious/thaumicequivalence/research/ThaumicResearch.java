@@ -22,7 +22,7 @@ public class ThaumicResearch {
         //Empty researchitem: new ResearchItem("", "TE_CATEGORY", AspectLists., 30, 0, 1, new ResourceLocation("projecte", "")).setPages(new ResearchPage("te.research_page..1"), new ResearchPage(ThaumicRecipes.)).setParents(new String[]{""}).setConcealed().registerResearchItem();
 
         //Root parent. Ints= Column, row, complexity
-        new ResearchItem("BASICEMC", "TE_CATEGORY", AspectLists.basicEMCTheoryResearch, 0, 0, 0, new ResourceLocation("projecte", "textures/items/philosophers_stone.png")).setPages(new ResearchPage("te.research_page.BASICEMC.1")).setAutoUnlock().setRound().registerResearchItem();
+        new ResearchItem("BASICEMC", "TE_CATEGORY", AspectLists.basicEMCTheoryResearch, 0, 0, 0, new ResourceLocation("projecte", "textures/items/philosophers_stone.png")).setPages(new ResearchPage("te.research_page.BASICEMC.1"), new ResearchPage("te.research_page.BASICEMC.2"), new ResearchPage("te.research_page.BASICEMC.3"), new ResearchPage("te.research_page.BASICEMC.4")).setAutoUnlock().setRound().registerResearchItem();
 
 
         if (TEConfig.mode == 1) {
