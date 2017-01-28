@@ -1,3 +1,6 @@
+###Version 1.7.10-1.0.4
+* FIX: Overlapping research
+
 ###Version 1.7.10-1.0.3
 * NEW: Research, research, research!
 * NEW: Recipes, recipes, recipes!
