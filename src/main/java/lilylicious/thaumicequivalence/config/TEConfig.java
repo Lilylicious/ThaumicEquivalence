@@ -69,7 +69,7 @@ public class TEConfig
 			instabilityValue = config.getInt("instabilityValue", "defaultValues", 8192, 0, Integer.MAX_VALUE, "The default value of instability.");
 			
 			//Difficulty
-			mode = config.getInt("mode", "difficulty", 0, -1, 1, "Mode: 0 = normal, 1 = hardMode, -1 = easyMode(not yet implemented)");
+			mode = config.getInt("mode", "difficulty", 0, 0, 0, "DISABLED FOR NOW - Mode: 0 = normal, 1 = hardMode, -1 = easyMode(not yet implemented)");
 			removeRecipes = config.getBoolean("recipeRemoval", "difficulty", true, "Enable recipe removals, overrides hard mode");
 
 			//Misc

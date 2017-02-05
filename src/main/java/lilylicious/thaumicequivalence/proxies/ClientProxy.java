@@ -1,7 +1,7 @@
 package lilylicious.thaumicequivalence.proxies;
 
-import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fml.client.FMLClientHandler;
 
 public class ClientProxy implements IProxy
 {

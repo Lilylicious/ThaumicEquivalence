@@ -78,7 +78,7 @@ public class AspectMapper
 
 		while (nonPrimals)
 		{
-			for (Aspect aspect : aspects.getAspectsSortedAmount())
+			for (Aspect aspect : aspects.getAspectsSortedByAmount())
 			{
 				if (aspect == null)
 					continue;

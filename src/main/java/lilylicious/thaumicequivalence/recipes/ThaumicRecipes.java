@@ -2,7 +2,6 @@ package lilylicious.thaumicequivalence.recipes;
 
 // Examples from: Thaumic Tinkerer
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import lilylicious.thaumicequivalence.config.TEConfig;
 import lilylicious.thaumicequivalence.utils.AspectLists;
 import lilylicious.thaumicequivalence.utils.RecipeHelper;
@@ -11,13 +10,13 @@ import moze_intel.projecte.gameObjs.ObjHandler;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.CrucibleRecipe;
 import thaumcraft.api.crafting.InfusionRecipe;
 import thaumcraft.api.crafting.ShapedArcaneRecipe;
-import thaumcraft.common.config.ConfigBlocks;
 
 public class ThaumicRecipes {
     public static void registerRecipes() {
@@ -43,7 +42,7 @@ public class ThaumicRecipes {
 
         if (TEConfig.mode == 1) {
             philoStone = addInfusion("PHILOSTONE", new ItemStack(ObjHandler.philosStone), 3, AspectLists.philoStoneCrafting, new ItemStack(Items.diamond, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.philoStone);
-            darkMatter = addInfusion("DARKMATTER", new ItemStack(ObjHandler.matter, 1, 0), 5, AspectLists.darkMatterCrafting, new ItemStack(ObjHandler.fuelBlock, 1, 2), RecipeLists.darkMatter);
+            //darkMatter = addInfusion("DARKMATTER", new ItemStack(ObjHandler.matter, 1, 0), 5, AspectLists.darkMatterCrafting, new ItemStack(ObjHandler.fuelBlock, 1, 2), RecipeLists.darkMatter);
             darkMatterAxe = addInfusion("DMAXE", new ItemStack(ObjHandler.dmAxe, 1), 2, AspectLists.dmAxeCrafting, new ItemStack(Items.diamond_axe, 1), RecipeLists.dmAxe);
             //TODO: Add diamond hammer for foci purposes
             darkMatterHammer = addInfusion("DMHAMMER", new ItemStack(ObjHandler.dmHammer, 1), 2, AspectLists.dmHammerCrafting, new ItemStack(Items.diamond_pickaxe, 1), RecipeLists.dmHammer);
@@ -100,7 +99,7 @@ public class ThaumicRecipes {
             katar = addInfusion("KATAR", new ItemStack(ObjHandler.rmKatar), 13, AspectLists.katarCrafting, new ItemStack(ObjHandler.matterBlock, 1, 1), RecipeLists.katar);
             interdictionTorch = addInfusion("INTERDICTION", new ItemStack(ObjHandler.confuseTorch), 3, AspectLists.interdictionTorchCrafting, new ItemStack(Blocks.redstone_torch), RecipeLists.interdictionTorch);
             energCondenserMk2 = addInfusion("CONDENSERMK2", new ItemStack(ObjHandler.condenserMk2), 7, AspectLists.energCondenserMk2Crafting, new ItemStack(ObjHandler.condenser), RecipeLists.energCondenserMk2);
-            dmPedestal = addInfusion("DMPEDESTAL", new ItemStack(ObjHandler.dmPedestal), 5, AspectLists.dmPedestalCrafting, new ItemStack(ConfigBlocks.blockStoneDevice, 1, 1), RecipeLists.dmPedestal);
+            //dmPedestal = addInfusion("DMPEDESTAL", new ItemStack(ObjHandler.dmPedestal), 5, AspectLists.dmPedestalCrafting, new ItemStack(ConfigBlocks.blockStoneDevice, 1, 1), RecipeLists.dmPedestal);
             novaCatalyst = addInfusion("EXPLOSIVES", new ItemStack(ObjHandler.novaCatalyst), 2, AspectLists.novaCatalystCrafting, new ItemStack(Blocks.tnt), RecipeLists.novaCatalyst);
             novaCataclysm = addInfusion("EXPLOSIVES", new ItemStack(ObjHandler.novaCataclysm), 4, AspectLists.novaCataclysmCrafting, new ItemStack(ObjHandler.novaCatalyst), RecipeLists.novaCataclysm);
             dmFurnace = addInfusion("DMFURNACE", new ItemStack(ObjHandler.dmFurnaceOff), 5, AspectLists.dmFurnaceCrafting, new ItemStack(Blocks.furnace), RecipeLists.dmFurnace);
@@ -113,7 +112,7 @@ public class ThaumicRecipes {
             densityGem = addInfusion("DENSITYGEM", new ItemStack(ObjHandler.eternalDensity), 6, AspectLists.densityGemCrafting, new ItemStack(ObjHandler.matterBlock, 1, 0), RecipeLists.densityGem);
             bodyStone = addInfusion("STONES", new ItemStack(ObjHandler.bodyStone), 5, AspectLists.bodyStoneCrafting, new ItemStack(ObjHandler.matterBlock, 1, 1), RecipeLists.bodyStone);
             soulStone = addInfusion("STONES", new ItemStack(ObjHandler.soulStone), 5, AspectLists.soulStoneCrafting, new ItemStack(ObjHandler.matterBlock, 1, 1), RecipeLists.soulStone);
-            mindStone = addInfusion("STONES", new ItemStack(ObjHandler.mindStone), 5, AspectLists.mindStoneCrafting, new ItemStack(ObjHandler.matterBlock, 1, 1), RecipeLists.mindStone);
+            //mindStone = addInfusion("STONES", new ItemStack(ObjHandler.mindStone), 5, AspectLists.mindStoneCrafting, new ItemStack(ObjHandler.matterBlock, 1, 1), RecipeLists.mindStone);
             lifeStone = addInfusion("STONES", new ItemStack(ObjHandler.lifeStone), 7, AspectLists.lifeStoneCrafting, new ItemStack(ObjHandler.matterBlock, 1, 1), RecipeLists.lifeStone);
             evertide = addInfusion("AMULETS", new ItemStack(ObjHandler.everTide), 5, AspectLists.evertideAmuletCrafting, new ItemStack(ObjHandler.matterBlock, 1, 0), RecipeLists.evertide);
             volcanite = addInfusion("AMULETS", new ItemStack(ObjHandler.volcanite), 5, AspectLists.volcaniteAmuletCrafting, new ItemStack(ObjHandler.matterBlock, 1, 0), RecipeLists.volcanite);
