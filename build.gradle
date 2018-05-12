@@ -1,85 +1,58 @@
 buildscript {
     repositories {
-        mavenCentral()
-        maven {
-            name = "forge"
-            url = "http://files.minecraftforge.net/maven"
-        }
-        maven {
-            name = "sonatype"
-            url = "https://oss.sonatype.org/content/repositories/snapshots/"
-        }
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
     }
 }
-
 apply plugin: 'net.minecraftforge.gradle.forge'
+//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+
 
 version = "${minecraft_version}-${thaumicequivalence_version}"
 group = "java.lilylicious" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "ThaumicEquivalence"
 
+sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
 minecraft {
-    mappings = 'snapshot_20151229'
+    mappings = "snapshot_20171003"
     version = "${minecraft_version}-${forge_version}"
-    runDir = "eclipse"
+    runDir = "run"
 
     replace "@VERSION@", project.version
     replaceIn "TECore.java"
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-
     // Adds all local libs dependencies in the libs folder
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
 }
 
-repositories {
-    maven { //MinecraftForge
-        name "MinecraftForge Maven"
-        url "http://files.minecraftforge.net/maven/"
-    }
+processResources {
+    // this will ensure that this task is redone when the versions change.
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
 
-    maven { //Waila Repo
-        name "Mobius Repo"
-        url "http://mobiusstrip.eu/maven"
+    // replace stuff in mcmod.info, nothing else
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+
+        // replace version and mcversion
+        expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-    maven { //NEI Repo
-        name 'CB Repo'
-        url "http://chickenbones.net/maven/"
-    }
-    maven {
-        name 'Chisel'
-        url "http://maven.tterrag.com/"
-    }
-    ivy {
-        name "MineTweaker3"
-        artifactPattern "http://minetweaker3.powerofbytes.com/download/[module]-([classifier]-)[revision].[ext]"
+        
+    // copy everything else except the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
     }
 }
-
-processResources
-        {
-            // this will ensure that this task is redone when the versions change.
-            inputs.property "version", project.version
-            inputs.property "mcversion", project.minecraft.version
-
-            // replace stuff in mcmod.info, nothing else
-            from(sourceSets.main.resources.srcDirs) {
-                include 'mcmod.info'
-
-                // replace version and mcversion
-                expand 'version': project.version, 'mcversion': project.minecraft.version
-            }
-
-            // copy everything else, thats not the mcmod.info
-            from(sourceSets.main.resources.srcDirs) {
-                exclude 'mcmod.info'
-            }
-        }
 
 // Dev jar (deobfuscated)
 task devJar(type: Jar) {
@@ -92,4 +65,10 @@ artifacts {
     archives devJar
 }
 
-idea.module.inheritOutputDirs = true
+idea{
+    module{
+        inheritOutputDirs = false
+        outputDir = compileJava.destinationDir
+        testOutputDir = compileTestJava.destinationDir
+    }
+}

@@ -1,11 +1,11 @@
 [
 {
-  "modid": "ThaumicEquivalence",
+  "modid": "thaumicequivalence",
   "name": "Thaumic Equivalence",
   "description": "ProjectE Thaumcraft bridge",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "http://minecraft.curseforge.com/projects/thaumic-equivalence",
+  "url": "https://minecraft.curseforge.com/projects/thaumic-equivalence",
   "updateUrl": "",
   "authorList": ["Lilylicious"],
   "credits": "Azanor for Thaumcraft\nsinkillerj, williewillus and Blubberbub for ProjectE",

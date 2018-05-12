@@ -1,3 +1,1 @@
-An addon to both ProjectE and Thaumcraft! The aim of the addon is to merge the two mods into a more fluid play experience, utilizing one to improve the other. The addon is developed with configs heavily in mind, allowing the user to tweak their experience the way they want. By default, the mod will attempt to keep things relatively balanced.
-
-Thus far, the only features on by default are EMC generation.
+An addon to both ProjectE and Thaumcraft! All it does is add EMC to Thaumcraft items. Not all items have EMC, but most do. There are plenty of configs to adjust the values. Feel free to let me know how you adjust the values, so that I can consider balancing the mod better!
