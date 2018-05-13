@@ -9,6 +9,7 @@ import lilylicious.thaumicequivalence.emc.AspectMapper;
 import lilylicious.thaumicequivalence.emc.ManualEMC;
 import lilylicious.thaumicequivalence.emc.ThaumicMapper;
 import lilylicious.thaumicequivalence.proxies.IProxy;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -17,6 +18,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import thaumcraft.api.ThaumcraftApi;
 
 import java.io.File;
 
@@ -43,6 +45,7 @@ public class TECore {
         }
 
         TEConfig.init(new File(CONFIG_DIR, "ThaumicEquivalency.cfg"));
+        ThaumcraftApi.registerResearchLocation(new ResourceLocation("thaumicequivalence", "research/thaumicresearch.json"));
 
         //proxy.registerClientOnlyEvents();
     }

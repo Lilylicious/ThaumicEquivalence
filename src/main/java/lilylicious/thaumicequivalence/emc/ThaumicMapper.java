@@ -71,7 +71,7 @@ public class ThaumicMapper {
             emc += AspectMapper.AspectEMC.get(entry.getKey().getTag()) * entry.getValue();
         }
 
-        //Component items
+        //Component itemsToRemove
         for (Ingredient ing : recipe.getComponents()) {
             emc += getLowestIngEMC(ing);
         }
