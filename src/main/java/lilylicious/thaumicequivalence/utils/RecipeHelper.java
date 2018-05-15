@@ -1,9 +1,11 @@
 package lilylicious.thaumicequivalence.utils;
 
-import moze_intel.projecte.gameObjs.customRecipes.RecipeAlchemyBag;
+import com.google.common.collect.Lists;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.registries.ForgeRegistry;
+import net.minecraftforge.registries.IForgeRegistryModifiable;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -17,14 +19,14 @@ public class RecipeHelper
 
     public static void removeRecipes()
     {
-        Iterator<IRecipe> recipes = ForgeRegistries.RECIPES.iterator();
+        IForgeRegistryModifiable<IRecipe> recipeRegistry = (IForgeRegistryModifiable<IRecipe>) ForgeRegistries.RECIPES;
+        ArrayList<IRecipe> recipes = Lists.newArrayList(recipeRegistry.getValuesCollection());
 
-        while (recipes.hasNext())
+        for(IRecipe recipe : recipes)
         {
-            IRecipe recipe = recipes.next();
-            if (recipe.getRecipeOutput() != null && itemsToRemove.contains(recipe.getRecipeOutput().getItem()) && !(recipe instanceof RecipeAlchemyBag))
+            if (recipe.getRecipeOutput() != null && itemsToRemove.contains(recipe.getRecipeOutput().getItem()))
             {
-                recipes.remove();
+                recipeRegistry.remove(recipe.getRegistryName());
             }
 
         }

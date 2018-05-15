@@ -1,0 +1,53 @@
+{
+  "entries" :[
+    {
+      "key": "TE_PHILOSTONE",
+      "name": "te.research_name.philostone",
+      "icons": [ "projecte:textures/items/philosophers_stone.png" ],
+      "category": "TE_CATEGORY",
+      "meta": [ "SPIKY"],
+      "location": [ 0,0 ],
+      "parents": ["~INFUSION"],
+      "stages": [
+        {
+          "recipes": ["projecte:pe_philosophers_stone"],
+          "text": "te.research_text.philostone.1",
+          "required_craft":["projecte:item.pe_philosophers_stone"],
+          "required_knowledge":["THEORY;TE_CATEGORY;1"]
+        }
+      ]
+    },
+    {
+      "key": "TE_TRANSMUTATION",
+      "name": "te.research_name.transmutation",
+      "icons": [ "projecte:textures/items/transmute_tablet.png" ],
+      "category": "TE_CATEGORY",
+      "meta": [ "SPIKY"],
+      "location": [ -2,0 ],
+      "parents": ["TE_PHILOSTONE"],
+      "stages": [
+        {
+          "recipes": ["projecte:pe_transmutation_table"],
+          "text": "te.research_text.transmutation.1",
+          "required_craft":["projecte:transmutation_table"]
+        }
+      ]
+    },
+    {
+      "key": "TE_TRANSMUTATIONTABLET",
+      "name": "te.research_name.transmutationtablet",
+      "icons": [ "projecte:textures/items/transmute_tablet.png" ],
+      "category": "TE_CATEGORY",
+      "meta": ["HIDDEN"],
+      "location": [ -4,0 ],
+      "parents": ["TE_TRANSMUTATION"],
+      "stages": [
+        {
+          "recipes": ["projecte:pe_transmutation_tablet"],
+          "text": "te.research_text.transmutationtablet.1",
+          "required_craft":["projecte:item.pe_transmutation_tablet"]
+        }
+      ]
+    }
+  ]
+}

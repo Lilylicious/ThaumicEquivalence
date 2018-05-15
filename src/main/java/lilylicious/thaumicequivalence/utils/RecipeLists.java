@@ -3,14 +3,19 @@ package lilylicious.thaumicequivalence.utils;
 import moze_intel.projecte.gameObjs.ObjHandler;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class RecipeLists {
 
+
     // new ItemStack[]{new ItemStack(), new ItemStack()}
-    private static ItemStack[] placeholder = new ItemStack[]{new ItemStack(Blocks.stone), new ItemStack(Blocks.stone), new ItemStack(Blocks.stone), new ItemStack(Blocks.stone)};
-    public static ItemStack[] philoStone = new ItemStack[]{new ItemStack(Items.redstone), new ItemStack(Items.glowstone_dust), new ItemStack(Items.redstone), new ItemStack(Items.glowstone_dust), new ItemStack(Items.redstone), new ItemStack(Items.glowstone_dust), new ItemStack(Items.redstone), new ItemStack(Items.glowstone_dust)};
+    //private static ItemStack[] placeholder = new ItemStack[]{new ItemStack(Blocks.stone), new ItemStack(Blocks.stone), new ItemStack(Blocks.stone), new ItemStack(Blocks.stone)};
+    //public static ItemStack[] philoStone = new ItemStack[]{new ItemStack(Items.redstone), new ItemStack(Items.glowstone_dust), new ItemStack(Items.redstone), new ItemStack(Items.glowstone_dust), new ItemStack(Items.redstone), new ItemStack(Items.glowstone_dust), new ItemStack(Items.redstone), new ItemStack(Items.glowstone_dust)};
+    public static Item[] philoStone = new Item[]{Items.REDSTONE, Items.GLOWSTONE_DUST, Items.REDSTONE, Items.GLOWSTONE_DUST, Items.REDSTONE, Items.GLOWSTONE_DUST, Items.REDSTONE, Items.GLOWSTONE_DUST};
+    /*
+
     //public static ItemStack[] darkMatter = new ItemStack[]{ItemApi.getItem("itemResource", 16),ItemApi.getItem("itemShard", 6), ItemApi.getItem("itemResource", 16),ItemApi.getItem("itemShard", 6), ItemApi.getItem("itemResource", 16),ItemApi.getItem("itemShard", 6), ItemApi.getItem("itemResource", 16),ItemApi.getItem("itemShard", 6)};
     public static ItemStack[] dmAxe = new ItemStack[]{new ItemStack(ObjHandler.matter, 1, 0), new ItemStack(ObjHandler.covalence, 1, 1), new ItemStack(ObjHandler.matter, 1, 0), new ItemStack(ObjHandler.covalence, 1, 1), new ItemStack(ObjHandler.matter, 1, 0), new ItemStack(ObjHandler.covalence, 1, 1)};
     public static ItemStack[] dmHammer = new ItemStack[]{new ItemStack(ObjHandler.matter, 1, 0), new ItemStack(ObjHandler.covalence, 1, 1), new ItemStack(ObjHandler.matter, 1, 0), new ItemStack(ObjHandler.covalence, 1, 1), new ItemStack(ObjHandler.matter, 1, 0), new ItemStack(ObjHandler.covalence, 1, 1), new ItemStack(ObjHandler.matter, 1, 0), new ItemStack(ObjHandler.covalence, 1, 1)};
@@ -95,4 +100,5 @@ public class RecipeLists {
     public static ItemStack[] hyperkineticLens = new ItemStack[]{new ItemStack(Items.diamond), new ItemStack(ObjHandler.novaCatalyst), new ItemStack(ObjHandler.novaCatalyst)};
     public static ItemStack[] catalyticLens = new ItemStack[]{new ItemStack(ObjHandler.dCatalyst), new ItemStack(ObjHandler.hyperLens)};
     public static ItemStack[] transmutationTablet = new ItemStack[]{new ItemStack(ObjHandler.matterBlock, 1, 1), new ItemStack(ObjHandler.matterBlock, 1, 0), new ItemStack(ObjHandler.matterBlock, 1, 0)};
+*/
 }

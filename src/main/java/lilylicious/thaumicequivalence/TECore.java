@@ -9,6 +9,9 @@ import lilylicious.thaumicequivalence.emc.AspectMapper;
 import lilylicious.thaumicequivalence.emc.ManualEMC;
 import lilylicious.thaumicequivalence.emc.ThaumicMapper;
 import lilylicious.thaumicequivalence.proxies.IProxy;
+import lilylicious.thaumicequivalence.recipes.ThaumicRecipes;
+import lilylicious.thaumicequivalence.research.ThaumicResearch;
+import lilylicious.thaumicequivalence.utils.RecipeHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -45,6 +48,8 @@ public class TECore {
         }
 
         TEConfig.init(new File(CONFIG_DIR, "ThaumicEquivalency.cfg"));
+
+        ThaumicResearch.registerResearch();
         ThaumcraftApi.registerResearchLocation(new ResourceLocation("thaumicequivalence", "research/thaumicresearch.json"));
 
         //proxy.registerClientOnlyEvents();
@@ -58,11 +63,14 @@ public class TECore {
     public void postInit(FMLPostInitializationEvent event) {
         //ThaumicAspects.registerAspects();
 
+
         if (TEConfig.aspectEMC) {
             AspectMapper.mapAspects();
         }
         ManualEMC.addEMC();
         ThaumicMapper.addConversions();
+        ThaumicRecipes.registerRecipes();
+        RecipeHelper.removeRecipes();
 
     }
 

@@ -8,28 +8,31 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.ThaumcraftApi;
+import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.capabilities.IPlayerKnowledge;
 import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ResearchCategory;
 import thaumcraft.api.research.ResearchEntry;
 import thaumcraft.api.research.ResearchStage;
+import thaumcraft.api.research.theorycraft.TheorycraftManager;
 
 public class ThaumicResearch {
     public static void registerResearch() {
         //Adds research tab
-        ResearchCategories.registerCategory("TE_CATEGORY", null, null, new ResourceLocation("projecte", "textures/itemsToRemove/philosophers_stone.png"), new ResourceLocation("thaumcraft", "textures/gui/gui_researchback.png"));
-
+        ResearchCategory TE_CATEGORY = ResearchCategories.registerCategory("TE_CATEGORY", "INFUSION", new AspectList().add(Aspect.MAGIC, 3), new ResourceLocation("projecte", "textures/items/philosophers_stone.png"), new ResourceLocation("thaumcraft", "textures/gui/gui_research_back_1.jpg"));
+        TheorycraftManager.registerAid(new AidTransTable());
+        TheorycraftManager.registerCard(CardTransmute.class);
 
         //new ResearchItem("BASICEMC", "TE_CATEGORY", AspectLists.basicEMCTheoryResearch, 0, 0, 0, new ResourceLocation("projecte", "textures/itemsToRemove/philosophers_stone.png")).setPages(new ResearchPage("te.research_page.BASICEMC.1"), new ResearchPage("te.research_page.BASICEMC.2"), new ResearchPage("te.research_page.BASICEMC.3"), new ResearchPage("te.research_page.BASICEMC.4")).setAutoUnlock().setRound().registerResearchItem();
 
 
         if (TEConfig.mode == 1) {
+
+            /*
             //Left tree
-            new ResearchItem("PHILOSTONE", "TE_CATEGORY", AspectLists.philoStoneResearch, -2, 1, 1, new ResourceLocation("projecte", "textures/itemsToRemove/philosophers_stone.png")).setPages(new ResearchPage("te.research_page.PHILOSTONE.1"), new ResearchPage(ThaumicRecipes.philoStone)).setParents(new String[]{"BASICEMC"}).setParentsHidden("INFUSION").setHidden().registerResearchItem();
+
             new ResearchItem("INTERDICTION", "TE_CATEGORY", AspectLists.interdictionTorchResearch, -1, 3, 1, new ItemStack(ObjHandler.confuseTorch)).setPages(new ResearchPage("te.research_page.INTERDICTION.1"), new ResearchPage(ThaumicRecipes.interdictionTorch)).setParents(new String[]{"PHILOSTONE"}).setHidden().registerResearchItem();
-            new ResearchItem("TRANSTABLE", "TE_CATEGORY", AspectLists.transTableResearch, -4, 2, 2, new ResourceLocation("projecte", "textures/itemsToRemove/transmute_tablet.png")).setPages(new ResearchPage("te.research_page.TRANSTABLE.1"), new ResearchPage(ThaumicRecipes.transTable)).setParents(new String[]{"PHILOSTONE"}).setHidden().registerResearchItem();
-            new ResearchItem("TRANSMUTATIONTABLET", "TE_CATEGORY", AspectLists.transmutationTabletResearch, -6, 3, 10, new ItemStack(ObjHandler.transmutationTablet)).setPages(new ResearchPage("te.research_page.TRANSMUTATIONTABLET.1"), new ResearchPage(ThaumicRecipes.transmutationTablet)).setParents(new String[]{"TRANSTABLE"}).setParentsHidden("DARKMATTER", "INFUSION").setHidden().registerResearchItem();
 
 
             //Middle tree
@@ -100,7 +103,7 @@ public class ThaumicResearch {
             new ResearchItem("POWERFLOWERS", "TE_CATEGORY", AspectLists.powerFlowerResearch, 9, 7, 1, new ItemStack(ObjHandler.energyCollector)).setPages(new ResearchPage("te.research_page.POWERFLOWERS.1"), new ResearchPage(ThaumicRecipes.collectorMk1), new ResearchPage(ThaumicRecipes.relayMk1)).setParents(new String[]{"ENERGYCONDENSER"}).setHidden().registerResearchItem();
             new ResearchItem("MK2", "TE_CATEGORY", AspectLists.mk2Research, 10, 9, 1, new ItemStack(ObjHandler.collectorMK2)).setPages(new ResearchPage("te.research_page.MK2.1"), new ResearchPage(ThaumicRecipes.collectorMk2), new ResearchPage(ThaumicRecipes.relayMk2)).setParents(new String[]{"POWERFLOWERS"}).setParentsHidden(new String[]{"DARKMATTER"}).setHidden().registerResearchItem();
             new ResearchItem("MK3", "TE_CATEGORY", AspectLists.mk3Research, 12, 11, 1, new ItemStack(ObjHandler.collectorMK3)).setPages(new ResearchPage("te.research_page.MK3.1"), new ResearchPage(ThaumicRecipes.collectorMk3), new ResearchPage(ThaumicRecipes.relayMk3)).setParents(new String[]{"MK2"}).setParentsHidden(new String[]{"REDMATTER"}).setHidden().registerResearchItem();
-
+            */
         }
     }
 

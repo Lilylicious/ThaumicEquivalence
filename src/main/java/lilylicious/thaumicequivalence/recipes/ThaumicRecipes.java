@@ -26,22 +26,23 @@ public class ThaumicRecipes {
         registerInfusionRecipes();
         registerCrucibleRecipes();
 
-        if (TEConfig.removeRecipes) RecipeHelper.removeRecipes();
 
     }
 
     private static void registerTableRecipes() {
 
         if (TEConfig.mode == 1) {
-            transTable = addShapedArcane("TRANSTABLE", new ItemStack(ObjHandler.transmuteStone), AspectLists.transTableCrafting, "DSD", "STS", "DSD", Character.valueOf('D'), Blocks.obsidian, Character.valueOf('S'), Blocks.stone, Character.valueOf('T'), ObjHandler.philosStone);
-            ironBand = addShapedArcane("RINGS", new ItemStack(ObjHandler.ironBand), AspectLists.ironBandCrafting, "XXX", "X X", "XXX", 'X', new ItemStack(Items.iron_ingot));
+            //transTable = addShapedArcane("TRANSTABLE", new ItemStack(ObjHandler.transmuteStone), AspectLists.transTableCrafting, "DSD", "STS", "DSD", Character.valueOf('D'), Blocks.obsidian, Character.valueOf('S'), Blocks.stone, Character.valueOf('T'), ObjHandler.philosStone);
+            //ironBand = addShapedArcane("RINGS", new ItemStack(ObjHandler.ironBand), AspectLists.ironBandCrafting, "XXX", "X X", "XXX", 'X', new ItemStack(Items.iron_ingot));
         }
     }
 
     private static void registerInfusionRecipes() {
         //Research, output, instability, aspects, foci, recipelist
         if (TEConfig.mode == 1) {
-            philoStone = addInfusion("PHILOSTONE", new ItemStack(ObjHandler.philosStone), 3, AspectLists.philoStoneCrafting, new ItemStack(Items.diamond, 1, OreDictionary.WILDCARD_VALUE), RecipeLists.philoStone);
+            addInfusion(new ResourceLocation("projecte", "pe_philosophers_stone"), new InfusionRecipe("INFUSION", new ItemStack(ObjHandler.philosStone), 0, AspectLists.philoStoneCrafting, Items.DIAMOND, (Object[])RecipeLists.philoStone));
+            /*
+
             //darkMatter = addInfusion("DARKMATTER", new ItemStack(ObjHandler.matter, 1, 0), 5, AspectLists.darkMatterCrafting, new ItemStack(ObjHandler.fuelBlock, 1, 2), RecipeLists.darkMatter);
             darkMatterAxe = addInfusion("DMAXE", new ItemStack(ObjHandler.dmAxe, 1), 2, AspectLists.dmAxeCrafting, new ItemStack(Items.diamond_axe, 1), RecipeLists.dmAxe);
             //TODO: Add diamond hammer for foci purposes
@@ -120,12 +121,14 @@ public class ThaumicRecipes {
             hyperkineticLens = addInfusion("LENSES", new ItemStack(ObjHandler.hyperLens), 6, AspectLists.hyperkineticLensCrafting, new ItemStack(ObjHandler.matterBlock, 1, 0), RecipeLists.hyperkineticLens);
             catalyticLens = addInfusion("LENSES", new ItemStack(ObjHandler.cataliticLens), 8, AspectLists.catalyticLensCrafting, new ItemStack(ObjHandler.matterBlock, 1, 1), RecipeLists.catalyticLens);
             transmutationTablet = addInfusion("TRANSMUTATIONTABLET", new ItemStack(ObjHandler.transmutationTablet), 3, AspectLists.transmutationTabletCrafting, new ItemStack(ObjHandler.transmuteStone), RecipeLists.transmutationTablet);
+        */
         }
     }
 
     private static void registerCrucibleRecipes() {
 
         if (TEConfig.mode == 1) {
+            /*
             covalenceLow = addCrucible("COVALENCE", new ItemStack(ObjHandler.covalence, 1, 0), new ItemStack(Items.coal), AspectLists.covalenceLowCrafting);
             covalenceMed = addCrucible("COVALENCE", new ItemStack(ObjHandler.covalence, 1, 1), new ItemStack(ObjHandler.covalence, 1, 0), AspectLists.covalenceMedCrafting);
             covalenceHigh = addCrucible("COVALENCE", new ItemStack(ObjHandler.covalence, 1, 2), new ItemStack(ObjHandler.covalence, 1, 1), AspectLists.covalenceHighCrafting);
@@ -133,6 +136,7 @@ public class ThaumicRecipes {
             alchCoal = addCrucible("FUELS", new ItemStack(ObjHandler.fuels, 1, 0), new ItemStack(Items.coal), AspectLists.alchCoal);
             mobiusFuel = addCrucible("FUELS", new ItemStack(ObjHandler.fuels, 1, 1), new ItemStack(ObjHandler.fuels, 1, 0), AspectLists.mobiusFuel);
             aeternalisFuel = addCrucible("FUELS", new ItemStack(ObjHandler.fuels, 1, 2), new ItemStack(ObjHandler.fuels, 1, 1), AspectLists.aeternalistFuel);
+            */
         }
     }
 
@@ -142,7 +146,7 @@ public class ThaumicRecipes {
     }
 
     private static void addInfusion(ResourceLocation resource, InfusionRecipe recipe) {
-        RecipeHelper.itemsToRemove.add((Item) recipe.getRecipeOutput());
+        RecipeHelper.itemsToRemove.add(((ItemStack)recipe.getRecipeOutput()).getItem());
         ThaumcraftApi.addInfusionCraftingRecipe(resource, recipe);
     }
 
