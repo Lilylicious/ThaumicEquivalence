@@ -33,7 +33,7 @@ public class ThaumicMapper {
                     if(((InfusionRecipe) recipe).getRecipeOutput() instanceof Object[]) continue;
                     emcProxy.registerCustomEMC(((InfusionRecipe) recipe).getRecipeOutput(), calculateEMC((InfusionRecipe) recipe));
                 } else if (recipe instanceof CrucibleRecipe && TEConfig.crucibleEMC) {
-                    if(((CrucibleRecipe) recipe).getRecipeOutput().isItemEqual(ItemsTC.crystalEssence.getDefaultInstance()))
+                    if(((CrucibleRecipe) recipe).getRecipeOutput().getItem().equals(ItemsTC.crystalEssence))
                         continue;
                     emcProxy.registerCustomEMC(((CrucibleRecipe) recipe).getRecipeOutput(), calculateEMC((CrucibleRecipe) recipe));
                 }
