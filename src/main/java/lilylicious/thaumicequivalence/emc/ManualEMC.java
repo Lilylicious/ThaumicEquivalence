@@ -23,7 +23,8 @@ public class ManualEMC {
         emcProxy.registerCustomEMC(BlocksTC.stoneAncient, 16);
         emcProxy.registerCustomEMC(BlocksTC.stoneEldritchTile, 32);
         emcProxy.registerCustomEMC(ItemsTC.salisMundus, 4+6+64+TEConfig.aerValue);
-        emcProxy.registerCustomEMC(ItemsTC.crystalEssence, TEConfig.aerValue);
+        //emcProxy.registerCustomEMC(ItemsTC.crystalEssence, TEConfig.aerValue);
+        emcProxy.registerCustomEMC(BlocksTC.stoneArcane, TEConfig.aerValue+8);
         emcProxy.registerCustomEMC(BlocksTC.shimmerleaf, TEConfig.shimmerLeafValue);
         emcProxy.registerCustomEMC(BlocksTC.cinderpearl, TEConfig.cinderpearlValue);
         emcProxy.registerCustomEMC(ItemsTC.quicksilver, TEConfig.quicksilverValue);
