@@ -14,9 +14,11 @@ public class RecipeLists {
     //private static ItemStack[] placeholder = new ItemStack[]{new ItemStack(Blocks.stone), new ItemStack(Blocks.stone), new ItemStack(Blocks.stone), new ItemStack(Blocks.stone)};
     //public static ItemStack[] philoStone = new ItemStack[]{new ItemStack(Items.redstone), new ItemStack(Items.glowstone_dust), new ItemStack(Items.redstone), new ItemStack(Items.glowstone_dust), new ItemStack(Items.redstone), new ItemStack(Items.glowstone_dust), new ItemStack(Items.redstone), new ItemStack(Items.glowstone_dust)};
     public static Item[] philoStone = new Item[]{Items.REDSTONE, Items.GLOWSTONE_DUST, Items.REDSTONE, Items.GLOWSTONE_DUST, Items.REDSTONE, Items.GLOWSTONE_DUST, Items.REDSTONE, Items.GLOWSTONE_DUST};
+    public static ItemStack[] transmutationTablet = new ItemStack[]{new ItemStack(ObjHandler.matterBlock, 1, 1), new ItemStack(ObjHandler.matterBlock, 1, 0), new ItemStack(ObjHandler.matterBlock, 1, 0)};
+    public static ItemStack[] darkMatter = new ItemStack[]{new ItemStack(ObjHandler.fuels, 1, 2),new ItemStack(ObjHandler.fuels, 1, 2),new ItemStack(ObjHandler.fuels, 1, 2),new ItemStack(ObjHandler.fuels, 1, 2),new ItemStack(ObjHandler.fuels, 1, 2),new ItemStack(ObjHandler.fuels, 1, 2),new ItemStack(ObjHandler.fuels, 1, 2),new ItemStack(ObjHandler.fuels, 1, 2)};
     /*
-
-    //public static ItemStack[] darkMatter = new ItemStack[]{ItemApi.getItem("itemResource", 16),ItemApi.getItem("itemShard", 6), ItemApi.getItem("itemResource", 16),ItemApi.getItem("itemShard", 6), ItemApi.getItem("itemResource", 16),ItemApi.getItem("itemShard", 6), ItemApi.getItem("itemResource", 16),ItemApi.getItem("itemShard", 6)};
+    public static ItemStack[] transmutationTablet = new ItemStack[]{new ItemStack(ObjHandler.matterBlock, 1, 1), new ItemStack(ObjHandler.matterBlock, 1, 0), new ItemStack(ObjHandler.matterBlock, 1, 0)};
+    public static ItemStack[] darkMatter = new ItemStack[]{ItemApi.getItem("itemResource", 16),ItemApi.getItem("itemShard", 6), ItemApi.getItem("itemResource", 16),ItemApi.getItem("itemShard", 6), ItemApi.getItem("itemResource", 16),ItemApi.getItem("itemShard", 6), ItemApi.getItem("itemResource", 16),ItemApi.getItem("itemShard", 6)};
     public static ItemStack[] dmAxe = new ItemStack[]{new ItemStack(ObjHandler.matter, 1, 0), new ItemStack(ObjHandler.covalence, 1, 1), new ItemStack(ObjHandler.matter, 1, 0), new ItemStack(ObjHandler.covalence, 1, 1), new ItemStack(ObjHandler.matter, 1, 0), new ItemStack(ObjHandler.covalence, 1, 1)};
     public static ItemStack[] dmHammer = new ItemStack[]{new ItemStack(ObjHandler.matter, 1, 0), new ItemStack(ObjHandler.covalence, 1, 1), new ItemStack(ObjHandler.matter, 1, 0), new ItemStack(ObjHandler.covalence, 1, 1), new ItemStack(ObjHandler.matter, 1, 0), new ItemStack(ObjHandler.covalence, 1, 1), new ItemStack(ObjHandler.matter, 1, 0), new ItemStack(ObjHandler.covalence, 1, 1)};
     public static ItemStack[] dmHoe = new ItemStack[]{new ItemStack(ObjHandler.matter, 1, 0), new ItemStack(ObjHandler.covalence, 1, 1), new ItemStack(ObjHandler.matter, 1, 0), new ItemStack(ObjHandler.covalence, 1, 1)};
@@ -99,6 +101,6 @@ public class RecipeLists {
     public static ItemStack[] destructionCatalyst = new ItemStack[]{new ItemStack(ObjHandler.novaCatalyst), new ItemStack(ObjHandler.novaCatalyst), new ItemStack(ObjHandler.novaCatalyst)};
     public static ItemStack[] hyperkineticLens = new ItemStack[]{new ItemStack(Items.diamond), new ItemStack(ObjHandler.novaCatalyst), new ItemStack(ObjHandler.novaCatalyst)};
     public static ItemStack[] catalyticLens = new ItemStack[]{new ItemStack(ObjHandler.dCatalyst), new ItemStack(ObjHandler.hyperLens)};
-    public static ItemStack[] transmutationTablet = new ItemStack[]{new ItemStack(ObjHandler.matterBlock, 1, 1), new ItemStack(ObjHandler.matterBlock, 1, 0), new ItemStack(ObjHandler.matterBlock, 1, 0)};
+
 */
 }

@@ -7,12 +7,13 @@ import lilylicious.thaumicequivalence.utils.AspectLists;
 import lilylicious.thaumicequivalence.utils.RecipeHelper;
 import lilylicious.thaumicequivalence.utils.RecipeLists;
 import moze_intel.projecte.gameObjs.ObjHandler;
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.common.crafting.CraftingHelper;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.crafting.CrucibleRecipe;
 import thaumcraft.api.crafting.IArcaneRecipe;
@@ -32,6 +33,7 @@ public class ThaumicRecipes {
     private static void registerTableRecipes() {
 
         if (TEConfig.mode == 1) {
+            addArcane(new ResourceLocation("projecte", "transmutation_table"), new ShapedArcaneRecipe(null, "TE_TRANSMUTATION", 50, AspectLists.transTableCrafting, new ItemStack(ObjHandler.transmuteStone), new Object[]{"oso", "sps", "oso", 'o', Blocks.OBSIDIAN, 's', Blocks.STONE, 'p', Blocks.ANVIL}));
             //transTable = addShapedArcane("TRANSTABLE", new ItemStack(ObjHandler.transmuteStone), AspectLists.transTableCrafting, "DSD", "STS", "DSD", Character.valueOf('D'), Blocks.obsidian, Character.valueOf('S'), Blocks.stone, Character.valueOf('T'), ObjHandler.philosStone);
             //ironBand = addShapedArcane("RINGS", new ItemStack(ObjHandler.ironBand), AspectLists.ironBandCrafting, "XXX", "X X", "XXX", 'X', new ItemStack(Items.iron_ingot));
         }
@@ -40,9 +42,12 @@ public class ThaumicRecipes {
     private static void registerInfusionRecipes() {
         //Research, output, instability, aspects, foci, recipelist
         if (TEConfig.mode == 1) {
-            addInfusion(new ResourceLocation("projecte", "pe_philosophers_stone"), new InfusionRecipe("INFUSION", new ItemStack(ObjHandler.philosStone), 0, AspectLists.philoStoneCrafting, Items.DIAMOND, (Object[])RecipeLists.philoStone));
+            addInfusion(new ResourceLocation("projecte", "pe_philosophers_stone"), new InfusionRecipe("INFUSION", new ItemStack(ObjHandler.philosStone), 0, AspectLists.philoStoneCrafting, Items.DIAMOND, RecipeLists.philoStone));
+            addInfusion(new ResourceLocation("projecte", "pe_transmutation_tablet"), new InfusionRecipe("TE_TRANSMUTATION", ObjHandler.transmutationTablet, 1, AspectLists.transmutationTabletCrafting, ObjHandler.transmuteStone, RecipeLists.transmutationTablet));
+            addInfusion(new ResourceLocation("projecte", "pe_dark_matter"), new InfusionRecipe("TE_DARKMATTER", new ItemStack(ObjHandler.matter, 1, 0), 1, AspectLists.darkMatterCrafting, Blocks.DIAMOND_BLOCK, RecipeLists.darkMatter));
+            //addInfusion(new ResourceLocation("projecte", "transmutation_table"), new InfusionRecipe("TE_TRANSMUTATION", new ItemStack(ObjHandler.transmuteStone), 1, AspectLists.transTableCrafting, ObjHandler.philosStone, new Block[]{Blocks.OBSIDIAN, Blocks.STONE, Blocks.OBSIDIAN, Blocks.STONE}));
             /*
-
+            transmutationTablet = addInfusion("TRANSMUTATIONTABLET", new ItemStack(ObjHandler.transmutationTablet), 3, AspectLists.transmutationTabletCrafting, new ItemStack(ObjHandler.transmuteStone), RecipeLists.transmutationTablet);
             //darkMatter = addInfusion("DARKMATTER", new ItemStack(ObjHandler.matter, 1, 0), 5, AspectLists.darkMatterCrafting, new ItemStack(ObjHandler.fuelBlock, 1, 2), RecipeLists.darkMatter);
             darkMatterAxe = addInfusion("DMAXE", new ItemStack(ObjHandler.dmAxe, 1), 2, AspectLists.dmAxeCrafting, new ItemStack(Items.diamond_axe, 1), RecipeLists.dmAxe);
             //TODO: Add diamond hammer for foci purposes
@@ -120,7 +125,7 @@ public class ThaumicRecipes {
             destructionCatalyst = addInfusion("LENSES", new ItemStack(ObjHandler.dCatalyst), 5, AspectLists.destructionCatalystCrafting, new ItemStack(Items.flint_and_steel), RecipeLists.destructionCatalyst);
             hyperkineticLens = addInfusion("LENSES", new ItemStack(ObjHandler.hyperLens), 6, AspectLists.hyperkineticLensCrafting, new ItemStack(ObjHandler.matterBlock, 1, 0), RecipeLists.hyperkineticLens);
             catalyticLens = addInfusion("LENSES", new ItemStack(ObjHandler.cataliticLens), 8, AspectLists.catalyticLensCrafting, new ItemStack(ObjHandler.matterBlock, 1, 1), RecipeLists.catalyticLens);
-            transmutationTablet = addInfusion("TRANSMUTATIONTABLET", new ItemStack(ObjHandler.transmutationTablet), 3, AspectLists.transmutationTabletCrafting, new ItemStack(ObjHandler.transmuteStone), RecipeLists.transmutationTablet);
+
         */
         }
     }
@@ -132,11 +137,11 @@ public class ThaumicRecipes {
             covalenceLow = addCrucible("COVALENCE", new ItemStack(ObjHandler.covalence, 1, 0), new ItemStack(Items.coal), AspectLists.covalenceLowCrafting);
             covalenceMed = addCrucible("COVALENCE", new ItemStack(ObjHandler.covalence, 1, 1), new ItemStack(ObjHandler.covalence, 1, 0), AspectLists.covalenceMedCrafting);
             covalenceHigh = addCrucible("COVALENCE", new ItemStack(ObjHandler.covalence, 1, 2), new ItemStack(ObjHandler.covalence, 1, 1), AspectLists.covalenceHighCrafting);
-
-            alchCoal = addCrucible("FUELS", new ItemStack(ObjHandler.fuels, 1, 0), new ItemStack(Items.coal), AspectLists.alchCoal);
-            mobiusFuel = addCrucible("FUELS", new ItemStack(ObjHandler.fuels, 1, 1), new ItemStack(ObjHandler.fuels, 1, 0), AspectLists.mobiusFuel);
-            aeternalisFuel = addCrucible("FUELS", new ItemStack(ObjHandler.fuels, 1, 2), new ItemStack(ObjHandler.fuels, 1, 1), AspectLists.aeternalistFuel);
             */
+
+            addCrucible(new ResourceLocation("projecte", "alchCoal"), new CrucibleRecipe("TE_PHILOSTONE", new ItemStack(ObjHandler.fuels, 1, 0), Items.COAL, AspectLists.alchCoal));
+            addCrucible(new ResourceLocation("projecte", "mobiusFuel"), new CrucibleRecipe("TE_PHILOSTONE", new ItemStack(ObjHandler.fuels, 1, 1), new ItemStack(ObjHandler.fuels, 1, 0), AspectLists.mobiusFuel));
+            addCrucible(new ResourceLocation("projecte", "aeternalisFuel"), new CrucibleRecipe("TE_PHILOSTONE", new ItemStack(ObjHandler.fuels, 1, 2), new ItemStack(ObjHandler.fuels, 1, 1), AspectLists.aeternalisFuel));
         }
     }
 
@@ -146,7 +151,13 @@ public class ThaumicRecipes {
     }
 
     private static void addInfusion(ResourceLocation resource, InfusionRecipe recipe) {
-        RecipeHelper.itemsToRemove.add(((ItemStack)recipe.getRecipeOutput()).getItem());
+        Object output = recipe.getRecipeOutput();
+
+        if(output instanceof Item)
+            RecipeHelper.itemsToRemove.add((Item)output);
+        if(output instanceof ItemStack)
+            RecipeHelper.itemsToRemove.add(((ItemStack)recipe.getRecipeOutput()).getItem());
+
         ThaumcraftApi.addInfusionCraftingRecipe(resource, recipe);
     }
 

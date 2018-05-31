@@ -134,7 +134,7 @@ public class AspectLists
     public static AspectList dmPedestalCrafting = new AspectList().add(Aspect.EXCHANGE, 5).add(Aspect.MECHANISM, 5);
     public static AspectList alchCoal = new AspectList().add(Aspect.FIRE, 2).add(Aspect.ENERGY, 4);
     public static AspectList mobiusFuel = new AspectList().add(Aspect.FIRE, 5).add(Aspect.ENERGY, 8);
-    public static AspectList aeternalistFuel = new AspectList().add(Aspect.FIRE, 10).add(Aspect.ENERGY, 16);
+    public static AspectList aeternalisFuel = new AspectList().add(Aspect.FIRE, 10).add(Aspect.ENERGY, 16);
     public static AspectList blackHoleCrafting = new AspectList().add(Aspect.EXCHANGE, 12).add(Aspect.TOOL, 10);
     public static AspectList voidRingCrafting = new AspectList().add(Aspect.EXCHANGE, 12).add(Aspect.VOID, 16);
     public static AspectList novaCatalystCrafting = new AspectList().add(Aspect.EXCHANGE, 10).add(Aspect.ENERGY, 16);

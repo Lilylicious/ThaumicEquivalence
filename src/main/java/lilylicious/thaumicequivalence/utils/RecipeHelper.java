@@ -6,6 +6,7 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryModifiable;
+import thaumcraft.api.crafting.IArcaneRecipe;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,7 +17,6 @@ public class RecipeHelper
 
     public static List<Item> itemsToRemove = new ArrayList<Item>();
 
-
     public static void removeRecipes()
     {
         IForgeRegistryModifiable<IRecipe> recipeRegistry = (IForgeRegistryModifiable<IRecipe>) ForgeRegistries.RECIPES;
@@ -24,6 +24,9 @@ public class RecipeHelper
 
         for(IRecipe recipe : recipes)
         {
+            if(recipe instanceof IArcaneRecipe)
+                continue;
+
             if (recipe.getRecipeOutput() != null && itemsToRemove.contains(recipe.getRecipeOutput().getItem()))
             {
                 recipeRegistry.remove(recipe.getRegistryName());

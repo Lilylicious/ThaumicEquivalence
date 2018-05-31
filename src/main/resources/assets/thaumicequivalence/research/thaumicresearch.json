@@ -10,26 +10,31 @@
       "parents": ["~INFUSION"],
       "stages": [
         {
-          "recipes": ["projecte:pe_philosophers_stone"],
           "text": "te.research_text.philostone.1",
-          "required_craft":["projecte:item.pe_philosophers_stone"],
-          "required_knowledge":["THEORY;TE_CATEGORY;1"]
+          "required_knowledge": ["OBSERVATION;TE_CATEGORY;1"]
+        },
+        {
+          "text": "te.research_text.philostone.1",
+          "recipes": ["projecte:pe_philosophers_stone"]
         }
       ]
     },
     {
       "key": "TE_TRANSMUTATION",
       "name": "te.research_name.transmutation",
-      "icons": [ "projecte:textures/items/transmute_tablet.png" ],
+      "icons": [ "projecte:transmutation_table;1;0" ],
       "category": "TE_CATEGORY",
-      "meta": [ "SPIKY"],
+      "meta": [ "ROUND"],
       "location": [ -2,0 ],
       "parents": ["TE_PHILOSTONE"],
       "stages": [
         {
-          "recipes": ["projecte:pe_transmutation_table"],
+          "required_knowledge":["THEORY;TE_CATEGORY;1"],
+          "text": "te.research_text.transmutation.1"
+        },
+        {
           "text": "te.research_text.transmutation.1",
-          "required_craft":["projecte:transmutation_table"]
+          "recipes": ["projecte:transmutation_table"]
         }
       ]
     },
@@ -38,14 +43,52 @@
       "name": "te.research_name.transmutationtablet",
       "icons": [ "projecte:textures/items/transmute_tablet.png" ],
       "category": "TE_CATEGORY",
-      "meta": ["HIDDEN"],
+      "meta": ["ROUND"],
       "location": [ -4,0 ],
-      "parents": ["TE_TRANSMUTATION"],
+      "parents": ["TE_TRANSMUTATION", "TE_DARKMATTER"],
       "stages": [
         {
+          "required_knowledge":["THEORY;TE_CATEGORY;1"],
+          "text": "te.research_text.transmutationtablet.1"
+        },
+        {
           "recipes": ["projecte:pe_transmutation_tablet"],
-          "text": "te.research_text.transmutationtablet.1",
-          "required_craft":["projecte:item.pe_transmutation_tablet"]
+          "text": "te.research_text.transmutationtablet.1"
+        }
+      ]
+    },
+    {
+      "key": "TE_FUELS",
+      "name": "te.research_name.fuels",
+      "icons": [ "projecte:item.pe_fuel;1;0", "projecte:item.pe_fuel;1;1", "projecte:item.pe_fuel;1;2" ],
+      "category": "TE_CATEGORY",
+      "meta": ["ROUND"],
+      "location": [ -1,-2 ],
+      "parents": ["TE_PHILOSTONE"],
+      "stages": [
+        {
+          "recipes": ["projecte:alchCoal","projecte:mobiusFuel", "projecte:aeternalisFuel"],
+          "text": "te.research_text.fuels.1",
+          "required_craft":["projecte:item.pe_fuel;1;2"]
+        }
+      ]
+    },
+    {
+      "key": "TE_DARKMATTER",
+      "name": "te.research_name.darkmatter",
+      "icons": [ "projecte:item.pe_matter;1;0"],
+      "category": "TE_CATEGORY",
+      "meta": ["ROUND"],
+      "location": [ -3,-2 ],
+      "parents": ["TE_FUELS"],
+      "stages": [
+        {
+          "text": "te.research_text.darkmatter.1",
+          "required_knowledge":["THEORY;TE_CATEGORY;1"]
+        },
+        {
+          "text": "te.research_text.darkmatter.1",
+          "recipes": ["projecte:pe_dark_matter"]
         }
       ]
     }
