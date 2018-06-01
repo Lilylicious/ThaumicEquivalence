@@ -15,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import thaumcraft.api.ThaumcraftApi;
+import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.crafting.CrucibleRecipe;
 import thaumcraft.api.crafting.IArcaneRecipe;
 import thaumcraft.api.crafting.InfusionRecipe;
@@ -41,51 +42,36 @@ public class ThaumicRecipes {
 
     private static void registerInfusionRecipes() {
         //Research, output, instability, aspects, foci, recipelist
+
+        //addInfusion(new ResourceLocation("projecte", ""), new InfusionRecipe("", new ItemStack(), 0, AspectLists.temp, new ItemStack(), RecipeLists.temp));
         if (TEConfig.mode == 1) {
             addInfusion(new ResourceLocation("projecte", "pe_philosophers_stone"), new InfusionRecipe("INFUSION", new ItemStack(ObjHandler.philosStone), 0, AspectLists.philoStoneCrafting, Items.DIAMOND, RecipeLists.philoStone));
             addInfusion(new ResourceLocation("projecte", "pe_transmutation_tablet"), new InfusionRecipe("TE_TRANSMUTATION", ObjHandler.transmutationTablet, 1, AspectLists.transmutationTabletCrafting, ObjHandler.transmuteStone, RecipeLists.transmutationTablet));
             addInfusion(new ResourceLocation("projecte", "pe_dark_matter"), new InfusionRecipe("TE_DARKMATTER", new ItemStack(ObjHandler.matter, 1, 0), 1, AspectLists.darkMatterCrafting, Blocks.DIAMOND_BLOCK, RecipeLists.darkMatter));
-            //addInfusion(new ResourceLocation("projecte", "transmutation_table"), new InfusionRecipe("TE_TRANSMUTATION", new ItemStack(ObjHandler.transmuteStone), 1, AspectLists.transTableCrafting, ObjHandler.philosStone, new Block[]{Blocks.OBSIDIAN, Blocks.STONE, Blocks.OBSIDIAN, Blocks.STONE}));
+            addInfusion(new ResourceLocation("projecte", "pe_red_matter"), new InfusionRecipe("TE_REDMATTER", new ItemStack(ObjHandler.matter, 1, 1), 2, AspectLists.redMatterCrafting, new ItemStack(ObjHandler.matterBlock, 1, 0), RecipeLists.redMatter));
+            addInfusion(new ResourceLocation("projecte", "pe_nova_catalyst"), new InfusionRecipe("TE_EXPLOSIVES", new ItemStack(ObjHandler.novaCatalyst), 1, AspectLists.novaCatalystCrafting, new ItemStack(Blocks.TNT), RecipeLists.novaCatalyst));
+            addInfusion(new ResourceLocation("projecte", "pe_nova_cataclysm"), new InfusionRecipe("TE_EXPLOSIVES", new ItemStack(ObjHandler.novaCataclysm), 1, AspectLists.novaCataclysmCrafting, new ItemStack(ObjHandler.novaCatalyst), RecipeLists.novaCataclysm));
+            addInfusion(new ResourceLocation("projecte", "pe_destruction_catalyst"), new InfusionRecipe("TE_LENSES", new ItemStack(ObjHandler.dCatalyst), 0, AspectLists.destructionCatalystCrafting, new ItemStack(Items.FLINT_AND_STEEL), RecipeLists.destructionCatalyst));
+            addInfusion(new ResourceLocation("projecte", "pe_hyperkinetic_lens"), new InfusionRecipe("TE_LENSES", new ItemStack(ObjHandler.hyperLens), 0, AspectLists.hyperkineticLensCrafting, new ItemStack(ObjHandler.matterBlock, 1, 0), RecipeLists.hyperkineticLens));
+            addInfusion(new ResourceLocation("projecte", "pe_catalitic_lens"), new InfusionRecipe("TE_LENSES", new ItemStack(ObjHandler.cataliticLens), 0, AspectLists.catalyticLensCrafting, new ItemStack(ObjHandler.matterBlock, 1, 1), RecipeLists.catalyticLens));
+            addInfusion(new ResourceLocation("projecte", "pe_dm_pedestal"), new InfusionRecipe("TE_DM_PEDESTAL", new ItemStack(ObjHandler.dmPedestal), 0, AspectLists.dmPedestalCrafting, new ItemStack(BlocksTC.pedestalArcane), RecipeLists.dmPedestal));
+            addInfusion(new ResourceLocation("projecte", "pe_dm_furnace"), new InfusionRecipe("TE_DARKMATTER", new ItemStack(ObjHandler.dmFurnaceOff), 0, AspectLists.dmFurnaceCrafting, new ItemStack(Blocks.FURNACE), RecipeLists.dmFurnace));
+            addInfusion(new ResourceLocation("projecte", "pe_rm_furnace"), new InfusionRecipe("TE_REDMATTER", new ItemStack(ObjHandler.rmFurnaceOff), 0, AspectLists.rmFurnaceCrafting, new ItemStack(ObjHandler.dmFurnaceOff), RecipeLists.rmFurnace));
+
+            addInfusion(new ResourceLocation("projecte", "pe_dm_axe"), new InfusionRecipe("TE_DARKMATTER", new ItemStack(ObjHandler.dmAxe), 0, AspectLists.dmAxeCrafting, new ItemStack(Items.DIAMOND_AXE), RecipeLists.dmAxe));
+            addInfusion(new ResourceLocation("projecte", "pe_dm_hammer"), new InfusionRecipe("TE_DARKMATTER", new ItemStack(ObjHandler.dmHammer), 0, AspectLists.dmHammerCrafting, new ItemStack(Items.DIAMOND_PICKAXE), RecipeLists.dmHammer));
+            addInfusion(new ResourceLocation("projecte", "pe_dm_hoe"), new InfusionRecipe("TE_DARKMATTER", new ItemStack(ObjHandler.dmHoe), 0, AspectLists.dmHoeCrafting, new ItemStack(Items.DIAMOND_HOE), RecipeLists.dmHoe));
+            addInfusion(new ResourceLocation("projecte", "pe_dm_shears"), new InfusionRecipe("TE_DARKMATTER", new ItemStack(ObjHandler.dmShears), 0, AspectLists.dmShearsCrafting, new ItemStack(Items.SHEARS), RecipeLists.dmShears));
+            addInfusion(new ResourceLocation("projecte", "pe_dm_shovel"), new InfusionRecipe("TE_DARKMATTER", new ItemStack(ObjHandler.dmShovel), 0, AspectLists.dmShovelCrafting, new ItemStack(Items.DIAMOND_SHOVEL), RecipeLists.dmShovel));
+            addInfusion(new ResourceLocation("projecte", "pe_dm_sword"), new InfusionRecipe("TE_DARKMATTER", new ItemStack(ObjHandler.dmSword), 0, AspectLists.dmSwordCrafting, new ItemStack(Items.DIAMOND_SWORD), RecipeLists.dmSword));
+            addInfusion(new ResourceLocation("projecte", "pe_dm_pick"), new InfusionRecipe("TE_DARKMATTER", new ItemStack(ObjHandler.dmPick), 0, AspectLists.dmPickCrafting, new ItemStack(Items.DIAMOND_PICKAXE), RecipeLists.dmPick));
+            addInfusion(new ResourceLocation("projecte", "pe_dm_helm"), new InfusionRecipe("TE_DARKMATTER", new ItemStack(ObjHandler.dmHelmet), 0, AspectLists.dmHelmCrafting, new ItemStack(Items.DIAMOND_HELMET), RecipeLists.dmHelm));
+            addInfusion(new ResourceLocation("projecte", "pe_dm_chest"), new InfusionRecipe("TE_DARKMATTER", new ItemStack(ObjHandler.dmChest), 0, AspectLists.dmChestCrafting, new ItemStack(Items.DIAMOND_CHESTPLATE), RecipeLists.dmChest));
+            addInfusion(new ResourceLocation("projecte", "pe_dm_legs"), new InfusionRecipe("TE_DARKMATTER", new ItemStack(ObjHandler.dmLegs), 0, AspectLists.dmLegsCrafting, new ItemStack(Items.DIAMOND_LEGGINGS), RecipeLists.dmLegs));
+            addInfusion(new ResourceLocation("projecte", "pe_dm_boots"), new InfusionRecipe("TE_DARKMATTER", new ItemStack(ObjHandler.dmFeet), 0, AspectLists.dmFeetCrafting, new ItemStack(Items.DIAMOND_BOOTS), RecipeLists.dmFeet));
+
             /*
-            transmutationTablet = addInfusion("TRANSMUTATIONTABLET", new ItemStack(ObjHandler.transmutationTablet), 3, AspectLists.transmutationTabletCrafting, new ItemStack(ObjHandler.transmuteStone), RecipeLists.transmutationTablet);
-            //darkMatter = addInfusion("DARKMATTER", new ItemStack(ObjHandler.matter, 1, 0), 5, AspectLists.darkMatterCrafting, new ItemStack(ObjHandler.fuelBlock, 1, 2), RecipeLists.darkMatter);
-            darkMatterAxe = addInfusion("DMAXE", new ItemStack(ObjHandler.dmAxe, 1), 2, AspectLists.dmAxeCrafting, new ItemStack(Items.diamond_axe, 1), RecipeLists.dmAxe);
-            //TODO: Add diamond hammer for foci purposes
-            darkMatterHammer = addInfusion("DMHAMMER", new ItemStack(ObjHandler.dmHammer, 1), 2, AspectLists.dmHammerCrafting, new ItemStack(Items.diamond_pickaxe, 1), RecipeLists.dmHammer);
-            darkMatterHoe = addInfusion("DMHOE", new ItemStack(ObjHandler.dmHoe, 1), 2, AspectLists.dmHoeCrafting, new ItemStack(Items.diamond_hoe, 1), RecipeLists.dmHoe);
-            //TODO: Add diamond shears for foci purposes
-            darkMatterShears = addInfusion("DMSHEARS", new ItemStack(ObjHandler.dmShears, 1), 2, AspectLists.dmShearsCrafting, new ItemStack(Items.shears, 1), RecipeLists.dmShears);
-            darkMatterShovel = addInfusion("DMSHOVEL", new ItemStack(ObjHandler.dmShovel, 1), 2, AspectLists.dmShovelCrafting, new ItemStack(Items.diamond_shovel, 1), RecipeLists.dmShovel);
-            darkMatterSword = addInfusion("DMSWORD", new ItemStack(ObjHandler.dmSword, 1), 2, AspectLists.dmSwordCrafting, new ItemStack(Items.diamond_sword, 1), RecipeLists.dmSword);
-            darkMatterPick = addInfusion("DMPICK", new ItemStack(ObjHandler.dmPick, 1), 2, AspectLists.dmPickCrafting, new ItemStack(Items.diamond_pickaxe, 1), RecipeLists.dmPick);
-            darkMatterHelm = addInfusion("DMPICK", new ItemStack(ObjHandler.dmHelmet, 1), 3, AspectLists.dmHelmCrafting, new ItemStack(Items.diamond_helmet, 1), RecipeLists.dmHelm);
-            darkMatterChest = addInfusion("DMPICK", new ItemStack(ObjHandler.dmChest, 1), 3, AspectLists.dmChestCrafting, new ItemStack(Items.diamond_chestplate, 1), RecipeLists.dmChest);
-            darkMatterLegs = addInfusion("DMPICK", new ItemStack(ObjHandler.dmLegs, 1), 3, AspectLists.dmLegsCrafting, new ItemStack(Items.diamond_leggings, 1), RecipeLists.dmLegs);
-            darkMatterBoots = addInfusion("DMPICK", new ItemStack(ObjHandler.dmFeet, 1), 3, AspectLists.dmFeetCrafting, new ItemStack(Items.diamond_boots, 1), RecipeLists.dmFeet);
-            repairTalisman = addInfusion("REPAIRTALISMAN", new ItemStack(ObjHandler.repairTalisman, 1), 0, AspectLists.repairTalismanCrafting, new ItemStack(Items.paper), RecipeLists.repairTalisman);
-            alchemicalChest = addInfusion("ALCHEMICALCHEST", new ItemStack(ObjHandler.alchChest, 1), 2, AspectLists.alchemicalChestCrafting, new ItemStack(Blocks.chest), RecipeLists.alchemicalChest);
-            energyCondenser = addInfusion("ENERGYCONDENSER", new ItemStack(ObjHandler.condenser), 3, AspectLists.energyCondenserCrafting, new ItemStack(ObjHandler.alchChest), RecipeLists.energyCondenser);
-            collectorMk1 = addInfusion("POWERFLOWERS", new ItemStack(ObjHandler.energyCollector), 3, AspectLists.collectorMk1Crafting, new ItemStack(Blocks.diamond_block), RecipeLists.collectorMk1);
-            relayMk1 = addInfusion("POWERFLOWERS", new ItemStack(ObjHandler.relay), 3, AspectLists.relayMk1Crafting, new ItemStack(Blocks.diamond_block), RecipeLists.relayMk1);
-            collectorMk2 = addInfusion("MK2", new ItemStack(ObjHandler.collectorMK2), 4, AspectLists.collectorMk2Crafting, new ItemStack(ObjHandler.energyCollector), RecipeLists.collectorMk2);
-            relayMk2 = addInfusion("MK2", new ItemStack(ObjHandler.relayMK2), 4, AspectLists.relayMk2Crafting, new ItemStack(ObjHandler.relay), RecipeLists.relayMk2);
-            collectorMk3 = addInfusion("MK3", new ItemStack(ObjHandler.collectorMK3), 5, AspectLists.collectorMk3Crafting, new ItemStack(ObjHandler.collectorMK2), RecipeLists.collectorMk3);
-            relayMk3 = addInfusion("MK3", new ItemStack(ObjHandler.relayMK3), 5, AspectLists.relayMk3Crafting, new ItemStack(ObjHandler.relayMK2), RecipeLists.relayMk3);
-            swiftWolf = addInfusion("RINGS", new ItemStack(ObjHandler.swrg), 5, AspectLists.swiftWolfRingCrafting, new ItemStack(ObjHandler.ironBand), RecipeLists.swiftWolfRing);
-            harvestGoddess = addInfusion("RINGS", new ItemStack(ObjHandler.harvestGod), 5, AspectLists.harvestGoddessRingCrafting, new ItemStack(ObjHandler.ironBand), RecipeLists.harvestGoddessRing);
-            zeroRing = addInfusion("RINGS", new ItemStack(ObjHandler.zero), 5, AspectLists.zeroRingCrafting, new ItemStack(ObjHandler.ironBand), RecipeLists.zeroRing);
-            ignitionRing = addInfusion("RINGS", new ItemStack(ObjHandler.ignition), 5, AspectLists.ignitionRingCrafting, new ItemStack(ObjHandler.ironBand), RecipeLists.ignitionRing);
-            blackHoleBand = addInfusion("RINGS", new ItemStack(ObjHandler.blackHole), 5, AspectLists.blackHoleCrafting, new ItemStack(ObjHandler.ironBand), RecipeLists.blackHole);
-            voidRing = addInfusion("RINGS", new ItemStack(ObjHandler.voidRing), 5, AspectLists.voidRingCrafting, new ItemStack(ObjHandler.ironBand), RecipeLists.voidRing);
-            arcanaRing = addInfusion("ARCANARING", new ItemStack(ObjHandler.arcana), 5, AspectLists.arcanaRingCrafting, new ItemStack(ObjHandler.matterBlock, 1, 1), RecipeLists.arcanaRing);
-            timeWatch = addInfusion("TIMEWATCH", new ItemStack(ObjHandler.timeWatch), 8, AspectLists.timeWatchCrafting, new ItemStack(Items.clock), RecipeLists.timeWatch);
-            kleinStarEin = addInfusion("KLEINSTARS", new ItemStack(ObjHandler.kleinStars, 1, 0), 1, AspectLists.kleinStarEin, new ItemStack(ObjHandler.fuelBlock, 1, 1), RecipeLists.kleinStarEin);
-            kleinStarZwei = addInfusion("KLEINSTARS", new ItemStack(ObjHandler.kleinStars, 1, 1), 3, AspectLists.kleinStarZwei, new ItemStack(ObjHandler.kleinStars, 1, 0), RecipeLists.kleinStarZwei);
-            kleinStarDrei = addInfusion("KLEINSTARS", new ItemStack(ObjHandler.kleinStars, 1, 2), 5, AspectLists.kleinStarDrei, new ItemStack(ObjHandler.kleinStars, 1, 1), RecipeLists.kleinStarDrei);
-            kleinStarVier = addInfusion("KLEINSTARS", new ItemStack(ObjHandler.kleinStars, 1, 3), 7, AspectLists.kleinStarVier, new ItemStack(ObjHandler.kleinStars, 1, 2), RecipeLists.kleinStarVier);
-            kleinStarSphere = addInfusion("KLEINSPHERE", new ItemStack(ObjHandler.kleinStars, 1, 4), 9, AspectLists.kleinStarSphereCrafting, new ItemStack(ObjHandler.kleinStars, 1, 3), RecipeLists.kleinStarSphere);
-            kleinStarOmega = addInfusion("KLEINOMEGA", new ItemStack(ObjHandler.kleinStars, 1, 5), 11, AspectLists.kleinStarOmegaCrafting, new ItemStack(ObjHandler.kleinStars, 1, 4), RecipeLists.kleinStarOmega);
-            redMatter = addInfusion("REDMATTER", new ItemStack(ObjHandler.matter, 1, 1), 9, AspectLists.redMatterCrafting, new ItemStack(ObjHandler.matterBlock, 1, 0), RecipeLists.redMatter);
+
             redMatterAxe = addInfusion("RMAXE", new ItemStack(ObjHandler.rmAxe), 5, AspectLists.rmAxeCrafting, new ItemStack(ObjHandler.dmAxe), RecipeLists.rmAxe);
             redMatterHammer = addInfusion("RMHAMMER", new ItemStack(ObjHandler.rmHammer), 5, AspectLists.rmHammerCrafting, new ItemStack(ObjHandler.dmHammer), RecipeLists.rmHammer);
             redMatterHoe = addInfusion("RMHOE", new ItemStack(ObjHandler.rmHoe), 5, AspectLists.rmHoeCrafting, new ItemStack(ObjHandler.dmHoe), RecipeLists.rmHoe);
@@ -103,12 +89,37 @@ public class ThaumicRecipes {
             gemBoots = addInfusion("GEMBOOTS", new ItemStack(ObjHandler.gemFeet), 11, AspectLists.gemBootsCrafting, new ItemStack(ObjHandler.rmFeet), RecipeLists.gemBoots);
             morningStar = addInfusion("MORNINGSTAR", new ItemStack(ObjHandler.rmStar), 13, AspectLists.morningstarCrafting, new ItemStack(ObjHandler.matterBlock, 1, 1), RecipeLists.morningstar);
             katar = addInfusion("KATAR", new ItemStack(ObjHandler.rmKatar), 13, AspectLists.katarCrafting, new ItemStack(ObjHandler.matterBlock, 1, 1), RecipeLists.katar);
+
+
+            repairTalisman = addInfusion("REPAIRTALISMAN", new ItemStack(ObjHandler.repairTalisman, 1), 0, AspectLists.repairTalismanCrafting, new ItemStack(Items.paper), RecipeLists.repairTalisman);
+            alchemicalChest = addInfusion("ALCHEMICALCHEST", new ItemStack(ObjHandler.alchChest, 1), 2, AspectLists.alchemicalChestCrafting, new ItemStack(Blocks.chest), RecipeLists.alchemicalChest);
+            energyCondenser = addInfusion("ENERGYCONDENSER", new ItemStack(ObjHandler.condenser), 3, AspectLists.energyCondenserCrafting, new ItemStack(ObjHandler.alchChest), RecipeLists.energyCondenser);
+            collectorMk1 = addInfusion("POWERFLOWERS", new ItemStack(ObjHandler.energyCollector), 3, AspectLists.collectorMk1Crafting, new ItemStack(Blocks.diamond_block), RecipeLists.collectorMk1);
+            relayMk1 = addInfusion("POWERFLOWERS", new ItemStack(ObjHandler.relay), 3, AspectLists.relayMk1Crafting, new ItemStack(Blocks.diamond_block), RecipeLists.relayMk1);
+            collectorMk2 = addInfusion("MK2", new ItemStack(ObjHandler.collectorMK2), 4, AspectLists.collectorMk2Crafting, new ItemStack(ObjHandler.energyCollector), RecipeLists.collectorMk2);
+            relayMk2 = addInfusion("MK2", new ItemStack(ObjHandler.relayMK2), 4, AspectLists.relayMk2Crafting, new ItemStack(ObjHandler.relay), RecipeLists.relayMk2);
+            collectorMk3 = addInfusion("MK3", new ItemStack(ObjHandler.collectorMK3), 5, AspectLists.collectorMk3Crafting, new ItemStack(ObjHandler.collectorMK2), RecipeLists.collectorMk3);
+            relayMk3 = addInfusion("MK3", new ItemStack(ObjHandler.relayMK3), 5, AspectLists.relayMk3Crafting, new ItemStack(ObjHandler.relayMK2), RecipeLists.relayMk3);
+            swiftWolf = addInfusion("RINGS", new ItemStack(ObjHandler.swrg), 5, AspectLists.swiftWolfRingCrafting, new ItemStack(ObjHandler.ironBand), RecipeLists.swiftWolfRing);
+            harvestGoddess = addInfusion("RINGS", new ItemStack(ObjHandler.harvestGod), 5, AspectLists.harvestGoddessRingCrafting, new ItemStack(ObjHandler.ironBand), RecipeLists.harvestGoddessRing);
+            zeroRing = addInfusion("RINGS", new ItemStack(ObjHandler.zero), 5, AspectLists.zeroRingCrafting, new ItemStack(ObjHandler.ironBand), RecipeLists.zeroRing);
+            ignitionRing = addInfusion("RINGS", new ItemStack(ObjHandler.ignition), 5, AspectLists.ignitionRingCrafting, new ItemStack(ObjHandler.ironBand), RecipeLists.ignitionRing);
+            blackHoleBand = addInfusion("RINGS", new ItemStack(ObjHandler.blackHole), 5, AspectLists.blackHoleCrafting, new ItemStack(ObjHandler.ironBand), RecipeLists.blackHole);
+            voidRing = addInfusion("RINGS", new ItemStack(ObjHandler.voidRing), 5, AspectLists.voidRingCrafting, new ItemStack(ObjHandler.ironBand), RecipeLists.voidRing);
+            arcanaRing = addInfusion("ARCANARING", new ItemStack(ObjHandler.arcana), 5, AspectLists.arcanaRingCrafting, new ItemStack(ObjHandler.matterBlock, 1, 1), RecipeLists.arcanaRing);
+            timeWatch = addInfusion("TIMEWATCH", new ItemStack(ObjHandler.timeWatch), 8, AspectLists.timeWatchCrafting, new ItemStack(Items.clock), RecipeLists.timeWatch);
+
+            //Change Kleinstar recipes
+            kleinStarEin = addInfusion("KLEINSTARS", new ItemStack(ObjHandler.kleinStars, 1, 0), 1, AspectLists.kleinStarEin, new ItemStack(ObjHandler.fuelBlock, 1, 1), RecipeLists.kleinStarEin);
+            kleinStarZwei = addInfusion("KLEINSTARS", new ItemStack(ObjHandler.kleinStars, 1, 1), 3, AspectLists.kleinStarZwei, new ItemStack(ObjHandler.kleinStars, 1, 0), RecipeLists.kleinStarZwei);
+            kleinStarDrei = addInfusion("KLEINSTARS", new ItemStack(ObjHandler.kleinStars, 1, 2), 5, AspectLists.kleinStarDrei, new ItemStack(ObjHandler.kleinStars, 1, 1), RecipeLists.kleinStarDrei);
+            kleinStarVier = addInfusion("KLEINSTARS", new ItemStack(ObjHandler.kleinStars, 1, 3), 7, AspectLists.kleinStarVier, new ItemStack(ObjHandler.kleinStars, 1, 2), RecipeLists.kleinStarVier);
+            kleinStarSphere = addInfusion("KLEINSPHERE", new ItemStack(ObjHandler.kleinStars, 1, 4), 9, AspectLists.kleinStarSphereCrafting, new ItemStack(ObjHandler.kleinStars, 1, 3), RecipeLists.kleinStarSphere);
+            kleinStarOmega = addInfusion("KLEINOMEGA", new ItemStack(ObjHandler.kleinStars, 1, 5), 11, AspectLists.kleinStarOmegaCrafting, new ItemStack(ObjHandler.kleinStars, 1, 4), RecipeLists.kleinStarOmega);
+
             interdictionTorch = addInfusion("INTERDICTION", new ItemStack(ObjHandler.confuseTorch), 3, AspectLists.interdictionTorchCrafting, new ItemStack(Blocks.redstone_torch), RecipeLists.interdictionTorch);
             energCondenserMk2 = addInfusion("CONDENSERMK2", new ItemStack(ObjHandler.condenserMk2), 7, AspectLists.energCondenserMk2Crafting, new ItemStack(ObjHandler.condenser), RecipeLists.energCondenserMk2);
-            //dmPedestal = addInfusion("DMPEDESTAL", new ItemStack(ObjHandler.dmPedestal), 5, AspectLists.dmPedestalCrafting, new ItemStack(ConfigBlocks.blockStoneDevice, 1, 1), RecipeLists.dmPedestal);
-            novaCatalyst = addInfusion("EXPLOSIVES", new ItemStack(ObjHandler.novaCatalyst), 2, AspectLists.novaCatalystCrafting, new ItemStack(Blocks.tnt), RecipeLists.novaCatalyst);
-            novaCataclysm = addInfusion("EXPLOSIVES", new ItemStack(ObjHandler.novaCataclysm), 4, AspectLists.novaCataclysmCrafting, new ItemStack(ObjHandler.novaCatalyst), RecipeLists.novaCataclysm);
-            dmFurnace = addInfusion("DMFURNACE", new ItemStack(ObjHandler.dmFurnaceOff), 5, AspectLists.dmFurnaceCrafting, new ItemStack(Blocks.furnace), RecipeLists.dmFurnace);
+
             rmFurnace = addInfusion("RMFURNACE", new ItemStack(ObjHandler.rmFurnaceOff), 7, AspectLists.rmFurnaceCrafting, new ItemStack(ObjHandler.dmFurnaceOff), RecipeLists.rmFurnace);
             whiteAlchBag = addInfusion("ALCHEMYBAG", new ItemStack(ObjHandler.alchBag, 1, 0), 1, AspectLists.whiteAlchBagCrafting, new ItemStack(ObjHandler.alchChest), RecipeLists.whiteAlchBag);
             lowDiviner = addInfusion("DIVININERS", new ItemStack(ObjHandler.dRod1), 1, AspectLists.lowDivinerCrafting, new ItemStack(Items.stick), RecipeLists.lowDiviner);
@@ -122,9 +133,6 @@ public class ThaumicRecipes {
             lifeStone = addInfusion("STONES", new ItemStack(ObjHandler.lifeStone), 7, AspectLists.lifeStoneCrafting, new ItemStack(ObjHandler.matterBlock, 1, 1), RecipeLists.lifeStone);
             evertide = addInfusion("AMULETS", new ItemStack(ObjHandler.everTide), 5, AspectLists.evertideAmuletCrafting, new ItemStack(ObjHandler.matterBlock, 1, 0), RecipeLists.evertide);
             volcanite = addInfusion("AMULETS", new ItemStack(ObjHandler.volcanite), 5, AspectLists.volcaniteAmuletCrafting, new ItemStack(ObjHandler.matterBlock, 1, 0), RecipeLists.volcanite);
-            destructionCatalyst = addInfusion("LENSES", new ItemStack(ObjHandler.dCatalyst), 5, AspectLists.destructionCatalystCrafting, new ItemStack(Items.flint_and_steel), RecipeLists.destructionCatalyst);
-            hyperkineticLens = addInfusion("LENSES", new ItemStack(ObjHandler.hyperLens), 6, AspectLists.hyperkineticLensCrafting, new ItemStack(ObjHandler.matterBlock, 1, 0), RecipeLists.hyperkineticLens);
-            catalyticLens = addInfusion("LENSES", new ItemStack(ObjHandler.cataliticLens), 8, AspectLists.catalyticLensCrafting, new ItemStack(ObjHandler.matterBlock, 1, 1), RecipeLists.catalyticLens);
 
         */
         }
