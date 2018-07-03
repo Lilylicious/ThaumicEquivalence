@@ -26,16 +26,16 @@ public class ThaumicMapper {
         for (Object recipe : ThaumcraftApi.getCraftingRecipes().values()) {
             try {
                 if (recipe instanceof ShapedArcaneRecipe && TEConfig.shapedArcaneEMC) {
-                    emcProxy.registerCustomEMC(((ShapedArcaneRecipe) recipe).getRecipeOutput(), calculateEMC((ShapedArcaneRecipe) recipe));
+                    emcProxy.registerCustomEMC(((ShapedArcaneRecipe) recipe).getRecipeOutput(), (int)calculateEMC((ShapedArcaneRecipe) recipe));
                 } else if (recipe instanceof ShapelessArcaneRecipe && TEConfig.shapelessArcaneEMC) {
-                    emcProxy.registerCustomEMC(((ShapelessArcaneRecipe) recipe).getRecipeOutput(), calculateEMC((ShapelessArcaneRecipe) recipe));
+                    emcProxy.registerCustomEMC(((ShapelessArcaneRecipe) recipe).getRecipeOutput(), (int)calculateEMC((ShapelessArcaneRecipe) recipe));
                 } else if (recipe instanceof InfusionRecipe && TEConfig.infusionEMC) {
                     if(((InfusionRecipe) recipe).getRecipeOutput() instanceof Object[]) continue;
-                    emcProxy.registerCustomEMC(((InfusionRecipe) recipe).getRecipeOutput(), calculateEMC((InfusionRecipe) recipe));
+                    emcProxy.registerCustomEMC(((InfusionRecipe) recipe).getRecipeOutput(), (int)calculateEMC((InfusionRecipe) recipe));
                 } else if (recipe instanceof CrucibleRecipe && TEConfig.crucibleEMC) {
                     if(((CrucibleRecipe) recipe).getRecipeOutput().isItemEqual(ItemsTC.crystalEssence.getDefaultInstance()))
                         continue;
-                    emcProxy.registerCustomEMC(((CrucibleRecipe) recipe).getRecipeOutput(), calculateEMC((CrucibleRecipe) recipe));
+                    emcProxy.registerCustomEMC(((CrucibleRecipe) recipe).getRecipeOutput(), (int)calculateEMC((CrucibleRecipe) recipe));
                 }
             } catch (NullPointerException e) {
                 //TELogger.logWarn("A recipe passed a null value into a conversion, skipped");
@@ -43,8 +43,8 @@ public class ThaumicMapper {
         }
     }
 
-    private static int calculateEMC(IArcaneRecipe recipe) {
-        int emc = 0;
+    private static long calculateEMC(IArcaneRecipe recipe) {
+        long emc = 0;
 
         //Vis added as EMC, does not consider discounts
         if (TEConfig.visCost)
@@ -60,8 +60,8 @@ public class ThaumicMapper {
         return emc;
     }
 
-    private static int calculateEMC(InfusionRecipe recipe) {
-        int emc = 0;
+    private static long calculateEMC(InfusionRecipe recipe) {
+        long emc = 0;
 
         //Center item
         emc += getLowestIngEMC(recipe.getRecipeInput());
@@ -82,8 +82,8 @@ public class ThaumicMapper {
         return emc;
     }
 
-    private static int calculateEMC(CrucibleRecipe recipe) {
-        int emc = 0;
+    private static long calculateEMC(CrucibleRecipe recipe) {
+        long emc = 0;
 
         //Aspects
         for (Map.Entry<Aspect, Integer> entry : recipe.getAspects().aspects.entrySet()) {
@@ -96,10 +96,10 @@ public class ThaumicMapper {
         return emc;
     }
 
-    private static int getLowestIngEMC(Ingredient ing) {
-        int emc = 0;
+    private static long getLowestIngEMC(Ingredient ing) {
+        long emc = 0;
 
-        int lowestEMC = Integer.MAX_VALUE;
+        long lowestEMC = Integer.MAX_VALUE;
         for (ItemStack stack : ing.getMatchingStacks()) {
             lowestEMC = Math.min(emcProxy.getValue(stack), lowestEMC);
         }
