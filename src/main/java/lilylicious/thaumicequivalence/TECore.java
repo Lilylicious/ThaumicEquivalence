@@ -20,7 +20,7 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 
 import java.io.File;
 
-@Mod(modid = TECore.MODID, name = TECore.MODNAME, version = TECore.VERSION, dependencies = "required-after:thaumcraft;required-after:projecte")
+@Mod(modid = TECore.MODID, name = TECore.MODNAME, version = TECore.VERSION, dependencies = "required-after:thaumcraft;required-after:projecte@[1.12-PE1.3.1B,)")
 public class TECore {
     public static final String MODID = "thaumicequivalence";
     public static final String MODNAME = "Thaumic Equivalence";
