@@ -1,4 +1,7 @@
-###Version 1.12.2-1.0.3
+###Version 1.12.2-1.0.5
+* FIX: Won't launch with the wrong ProjectE version so I stop getting crash logs sent to me.
+
+###Version 1.12.2-1.0.4
 * FIX: ACTUALLY makes things compatible for the newest ProjectE version.
 
 ###Version 1.12.2-1.0.3
